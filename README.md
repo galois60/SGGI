@@ -15,5 +15,5 @@ doc/
 	Package documentation.
 examples/
 	Examples of package use.
-test/
-	Performance and debugging tests.
+experiments/
+	Experiments conducted on specific groups using the SGGI code.
