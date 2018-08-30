@@ -3,6 +3,7 @@
   {
         properties.m
         classical.m
-     
+        involutions.m
+        search.m
   }
 }
