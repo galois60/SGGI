@@ -2,7 +2,7 @@
   This file contains intrinsics that ascertain properties of SGGIs.
 */
 
-intrinsic IsSGGI (G::SeqEnum) -> BoolElt
+intrinsic IsSGGI (G::Grp) -> BoolElt
   {Test whether G is an SGGI on its given generator list.}
   if exists { i : i in [1..Ngens (G)] | Order (G.i) ne 2 } then
       vprint SGGI, 1 : "not all elements are involutions";
@@ -17,7 +17,7 @@ intrinsic IsSGGI (G::SeqEnum) -> BoolElt
             return false;
        else
             return true;
-       and if;
+       end if;
   else
       vprint SGGI, 1 : "G fails the string condition";
   end if;
@@ -50,7 +50,7 @@ intrinsic IsSGGIModSubgroup (G::Grp, N::Grp) -> BoolElt
             return false;
        else
             return true;
-       and if;
+       end if;
   else
       vprint SGGI, 1 : "G/N fails the string condition";
   end if;
@@ -67,13 +67,13 @@ intrinsic IsSGGIModScalars (G::GrpMat) -> BoolElt
                     not IsScalar (G.i * G.j) and IsScalar ((G.i * G.j)^2)
                    } };   
    if flag1 then   // G/Z satisfies the string condition
-       flag2 := forall { i : i in [1..Ngens (G)-1] | not IsScalar (G.i * G.(i+1))^2) };
+       flag2 := forall { i : i in [1..Ngens (G)-1] | not IsScalar (G.i * G.(i+1))^2 };
        if not flag2 then
             vprint SGGI, 1 : "G/Z is directly decomposable";
             return false;
        else
             return true;
-       and if;
+       end if;
   else
       vprint SGGI, 1 : "G/Z fails the string condition";
   end if;
