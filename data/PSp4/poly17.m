@@ -1,4 +1,4 @@
-P17 := [ PowerSequence(MatrixGroup<4, GF(17) |
+SpH_polys := [ PowerSequence(MatrixGroup<4, GF(17) |
         DiagonalMatrix(GF(17), [3, 6, 1, 1]),
         Matrix(GF(17), 4, 4, \[ 1, 0, 0, 1, 0, 0, 16, 0, 1, 0, 0, 0, 0, 1, 1, 0 
         ])

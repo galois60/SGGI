@@ -11,6 +11,10 @@ S,InduceGroup,"For G stabilizing U, return the group induced by G on U and the h
 S,IsNonsingularOrthogonalSpace,Decide if Q is a nonsingular quadratic form on its underlying module,0,1,0,0,0,0,0,0,0,-34,,36,-38,-38,-38,-38,-38
 S,IsHyperbolicLine,Decide if U is a hyperbolic line relative to quadratic form Q,0,2,0,0,0,0,0,0,0,159,,0,0,-34,,36,160,160,-38,-38,-38
 S,IdentifyLineType,"Decide whether the 2-space is totally singular, hyperbolic, singular, or asingular",0,2,0,0,0,0,0,0,0,159,,0,0,-34,,298,-38,-38,-38,-38,-38
+<<<<<<< HEAD
+=======
+S,MyWittIndex,The isometry type of the subspace U of the quadratic space determined by Q,0,2,0,0,0,0,0,0,0,159,,0,0,-34,,148,-38,-38,-38,-38,-38
+>>>>>>> 326647854c10b1e26857789b9d3f9fb98b4f85a1
 S,Reflection,"Return the reflection in the perp-space of v relative to F, where v is non-singular with respect to Q",0,2,0,0,0,0,0,0,0,-34,,0,0,160,,180,-38,-38,-38,-38,-38
 S,Symmetry,Return the symmetry defined by the nonsingular vector v,0,2,0,0,0,0,0,0,0,-34,,0,0,160,,180,-38,-38,-38,-38,-38
 S,TransvectionGroup,"Return the group of (v,W)-transvections, where W is the perp-space of v relative to F",0,2,0,0,0,0,0,0,0,-34,,0,0,160,,178,-38,-38,-38,-38,-38
@@ -18,7 +22,10 @@ S,PseudoTransvectionGroup,"Return the group of pseudo-tansvections associated to
 S,MySupport,Compute the support of matrix X on its underlying vector space,0,1,0,0,0,0,0,0,0,-34,,159,-38,-38,-38,-38,-38
 S,MySupport,Compute the support of matrix group H on its underlying vector space,0,1,0,0,0,0,0,0,0,178,,159,-38,-38,-38,-38,-38
 S,MySupport,Compute the support of matrix algebra A on its underlying vector space,0,1,0,0,0,0,0,0,0,176,,159,-38,-38,-38,-38,-38
+<<<<<<< HEAD
 S,MyWittIndex,The Witt index of the quadratic space determined by Q,0,1,0,0,0,0,0,0,0,-34,,148,-38,-38,-38,-38,-38
+=======
+>>>>>>> 326647854c10b1e26857789b9d3f9fb98b4f85a1
 S,SpIsotropic,"Return the symplect group Sp(d,q) relative to a totally isotropic basis",0,2,0,0,0,0,0,0,0,148,,0,0,148,,178,-34,175,-38,-38,-38
 S,SpHyperbolic,"Return the symplect group Sp(d,q) relative to a hyperbolic basis",0,2,0,0,0,0,0,0,0,148,,0,0,148,,178,-34,175,-38,-38,-38
 S,MyGO,Full orthogonal group written relative to an orthonormal basis,0,2,0,0,0,0,0,0,0,148,,0,0,148,,178,-38,-38,-38,-38,-38

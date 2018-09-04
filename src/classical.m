@@ -145,43 +145,32 @@ end intrinsic;
 
 
 intrinsic IdentifyLineType (Q::Mtrx, U::ModTupFld : SANITY := false) -> MonStgElt
-  {Decide whether the 2-space is totally singular, hyperbolic, singular, or asingular.}
-  
+  {Decide whether the 2-space is totally singular, hyperbolic, singular, or asingular.} 
   require Dimension (U) eq 2 : "U must be 2-dimensional";
   if SANITY then
       pts := { sub < U | u > : u in U | u ne 0 };
-  end if;
-  
+  end if;  
   F := Q + Transpose (Q);
-
   u1 := Basis (U)[1];   u2 := Basis (U)[2];
   R<x> := PolynomialRing (BaseRing (U));
   f := InnerProduct (u1 * Q, u1) + InnerProduct (u1 * F, u2) * x + 
-         InnerProduct (u2 * Q, u2) * x^2;
-         
-  if f eq 0 then 
-   
+         InnerProduct (u2 * Q, u2) * x^2;        
+  if f eq 0 then   
       if SANITY then
           assert forall { P : P in pts | InnerProduct (P.1 * Q, P.1) eq 0 };
       end if;
-      return "totally singular";
-      
+      return "totally singular";     
   elif Degree (f) eq 0 then 
-  
       if SANITY then
           assert #{ P : P in pts | InnerProduct (P.1 * Q, P.1) eq 0 } eq 1;
       end if; 
-      return "singular";
-      
+      return "singular";    
   elif Degree (f) eq 1 then
-  
       if SANITY then
           assert #{ P : P in pts | InnerProduct (P.1 * Q, P.1) eq 0 } eq 2;
       end if;
-      return "hyperbolic";
-      
-  else 
-  
+      return "hyperbolic";  
+  else  
       roots := Roots (f);
       if #roots eq 0 then
           if SANITY then
@@ -198,12 +187,23 @@ intrinsic IdentifyLineType (Q::Mtrx, U::ModTupFld : SANITY := false) -> MonStgEl
               assert #{ P : P in pts | InnerProduct (P.1 * Q, P.1) eq 0 } eq 2;
           end if;
           return "hyperbolic";
-      end if;
-      
+      end if;    
   end if;
-  
 end intrinsic;
 
+
+intrinsic MyWittIndex (Q::Mtrx, U::ModTupFld) -> RngIntElt
+  {The isometry type of the subspace U of the quadratic space determined by Q.}
+    if Dimension (U) eq 0 then
+         return -2;
+    end if;
+    QU := RestrictQuadraticForm (Q, U);
+    if Determinant (Q + Transpose (Q)) eq 0 then
+         return -1;
+    else
+         return WittIndex (QuadraticSpace (QU));
+    end if;  
+end intrinsic;
 
 // this should just be cut now
 intrinsic Reflection (v::ModTupFldElt, Q::Mtrx) -> GrpMatElt
@@ -292,12 +292,6 @@ end intrinsic;
 intrinsic MySupport (A::AlgMat) -> ModTupFld
   {Compute the support of matrix algebra A on its underlying vector space.}
 return &+ [ MySupport (A.i) : i in [1..Ngens (A)] ];
-end intrinsic;
-
-
-intrinsic MyWittIndex (Q::Mtrx) -> RngIntElt
-  {The Witt index of the quadratic space determined by Q.}
-return WittIndex (QuadraticSpace (Q));
 end intrinsic;
 
 
@@ -462,19 +456,16 @@ end intrinsic;
 /*     [ 0  1 ]                                         */
 /*     [ 1  0 ]                                         */ 
 intrinsic C3MaximalSp4 (p::RngIntElt, e::RngIntElt) -> GrpMat
-  {Return the nondegenerate semilinear (C3) maximal subgroup of the nice Sp(4,q).}
-  
+  {Return the nondegenerate semilinear (C3) maximal subgroup of the nice Sp(4,q).} 
   q := p^e;
   assert (q + 1) mod 4 eq 0;
   k := GF (q);
-  G := SpIsotropic (4, q);
-  
+  G := SpIsotropic (4, q); 
   /* build nice generator of K */
   T := Matrix (k, 2, 2, [0, 1, -1, 0]);
   assert (T^2 eq -1) and (IsIrreducible (CharacteristicPolynomial (T)));
   F, K, phi, psi := IsomorphismWithField (T);
   assert (K.1 eq T @ phi) and (Order (K.1) eq 4);
-  
   /* build the embedding of GU(2,K) */
   gu := GU (2, K);
   gu_gens := [ gu.i : i in [1..Ngens (gu)] ] cat [ gu![0,1,1,0] ];
@@ -493,21 +484,17 @@ intrinsic C3MaximalSp4 (p::RngIntElt, e::RngIntElt) -> GrpMat
       Append (~gens, g);
   end for;
   H := sub < GL (4, k) | gens >;
-  assert H subset G;
-  
+  assert H subset G; 
   t := G![-1,0,0,0,0,1,0,0,0,0,-1,0,0,0,0,1];
   assert H^t eq H;
   Append (~gens, t);
   M := sub < GL (4, k) | gens >; 
-  
 return M;
 end intrinsic;
 
 intrinsic SL2toGO3 (q::RngIntElt) -> Map
-  { Given q return isomorphism SL(2,q) --> GO(3,q) }
-  
+  { Given q return isomorphism SL(2,q) --> GO(3,q) }  
   require #Factorisation (q) eq 1 : "q must be a prime power";
-  
   SL2 := SL (2, q);
   RandomSchreier (SL2);
   MS := KMatrixSpace (GF (q), 2, 2);
@@ -524,22 +511,18 @@ intrinsic SL2toGO3 (q::RngIntElt) -> Map
           ];
   GO3 := sub < GL (3, q) | gens >;  
   RandomSchreier (GO3);
-  phi := hom < SL2 -> GO3 | gens >;
-  
+  phi := hom < SL2 -> GO3 | gens >;  
 return phi;
-
 end intrinsic;
 
 
 intrinsic ProjectiveGroup (G::GrpMat) -> GrpPerm , Map
-  { Given a matrix group, compute its action on the underlying projective space }
-  
+  { Given a matrix group, compute its action on the underlying projective space } 
   K := BaseRing (G);
   d := Degree (G);
   V := VectorSpace (K, d);
   pts := { sub < V | v > : v in V | v ne 0 };
   pts := [ x : x in pts ];
- 
   // compute permutation action of the generators of G
   gens := [ ];
   S := SymmetricGroup (#pts);
@@ -551,13 +534,10 @@ intrinsic ProjectiveGroup (G::GrpMat) -> GrpPerm , Map
       Append (~gens, S!perm);
   end for;
   H := sub < S | gens >;
-  
   RandomSchreier (H);
   RandomSchreier (G);
   f := hom < G -> H | gens >;
-  
 return H, f;
-
 end intrinsic;
 
 
