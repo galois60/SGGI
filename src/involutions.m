@@ -7,6 +7,19 @@ return [ i : i in I ];
 end intrinsic;
 
 
+intrinsic IsDihedral (G::Grp) -> SeqEnum
+  {Given a group, decide if it is dihedral.}
+  n := #G;
+  if n mod 2 eq 1 then return false, _, _; end if;
+  I := Involutions (G);
+  isit := exists (i){ k : k in I | exists { x : x in Generators (G) | (k,x) ne Identity (G) } };
+  isit := exists (j){ k : k in I | Order (i*k) eq n div 2 };   
+  if not isit then return false, _, _; end if;
+  assert sub<G|i,j> eq G;
+return true, i, j;
+end intrinsic;
+
+
 intrinsic WhichClass (G::GrpMat, C::SeqEnum, x::GrpMatElt) -> RngIntElt
   {Given a list of G class reps decide which one x belongs to, if any.}
   if exists (j){i : i in [1..#C] | IsConjugate (G, C[i], x)} then

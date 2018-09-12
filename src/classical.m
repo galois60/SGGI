@@ -1,6 +1,5 @@
 /* ----- some useful intrinsics for computing with classical groups ----- */
 
-
 intrinsic PerpSpace (F::Mtrx, U::ModTupFld) -> ModTupFld
   {Compute the perp-space of U relative to the bilinear form F.}
   V := Generic (U);

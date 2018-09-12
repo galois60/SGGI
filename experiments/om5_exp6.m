@@ -8,20 +8,36 @@ O := MyOmega (5, q);  assert forall { i : i in [1..Ngens(O)] | O.i * Q * Transpo
 
 Er := sub < V | V.3 , V.4 , V.5 >;   Fr := sub < V | V.1 , V.2 >;
 r := InvolutionOdd (Er, Fr);   assert r in O;
-repeat
-     v := Random (V);
-     Ft := sub < V | v , V.2 , V.3 , V.4 >;
-until MyWittIndex (Q, Ft) eq 2;
-Et := PerpSpace (Q, Ft);
-t := InvolutionOdd (Et, Ft);   assert t in O;
+Cr := Centralizer (O, r);   
 
+found := false;
+count := 0;
+LIMIT := 100;
+while (count lt LIMIT) and (not found) do
+  count +:= 1;
+  repeat
+     repeat
+        v := V![ Random ([0..q-1]) : i in [1..5] ];
+     until (InnerProduct (v * Q, v) ne 0) and (not v in Er) and (not v in Fr);
+     Et := sub <V|v>;
+     Ft := PerpSpace (Q, Et);
+  until MyWittIndex (Q, Ft) eq 2;
+  t := InvolutionOdd (Et, Ft);   assert t in O;
+  Ct := Centralizer (O, t);   
+  D := Ct meet Cr;
+  isit, i, j := IsDihedral (D);
+  if isit then 
+      found := true;    
+  end if;
+end while;
 
-Ct := Centralizer (O, t);
-Cr := Centralizer (O, r);
-D := Ct meet Cr;
-"|D| =", #D;
-ZD := Center (D);
-"|ZD| =", #ZD;
+if found then
+   "found a suitable pair of involutions after", count, "tries";
+   "i * j has order", Order (i*j);
+   "v =", v;
+else
+   "failed to find a suitable pair of involutions after", LIMIT, "tries";
+end if;
 
 
 
