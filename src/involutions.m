@@ -13,6 +13,7 @@ intrinsic IsDihedral (G::Grp) -> SeqEnum
   if n mod 2 eq 1 then return false, _, _; end if;
   I := Involutions (G);
   isit := exists (i){ k : k in I | exists { x : x in Generators (G) | (k,x) ne Identity (G) } };
+  if not isit then return false, _, _; end if;
   isit := exists (j){ k : k in I | Order (i*k) eq n div 2 };   
   if not isit then return false, _, _; end if;
   assert sub<G|i,j> eq G;
