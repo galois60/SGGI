@@ -49,7 +49,13 @@ b := H meet X;   assert Dimension (b) eq 1;   assert (b.1 * r eq -b.1) and (b.1 
 L := H meet Y;   assert Dimension (L) eq 2;   "WI(L) =", MyWittIndex (Q, L);
 M := PerpSpace (Q, L);   assert (Dimension (M) eq 3) and (Dimension (L meet M) eq 0);
 assert M eq a + X;  
-LD := PerpSpace (Q, b) meet M;   assert (Dimension (LD) eq 2) and (MyWittIndex (Q, LD) eq 0); 
+LD := PerpSpace (Q, b) meet M;   assert (Dimension (LD) eq 2) and (MyWittIndex (Q, LD) eq 0);
+assert a subset LD;
+
+// eventually, G0 will stabilize V1 + V4^+, and G3 will stabilize V2^- + V3
+// D is the intersection of G0 and G3, LD is the intersection of V3 and V4^+, 
+// and b is the intersection of V2^- and V4^+
+
 
 DL := InduceGroup (D, L);
 DM := InduceGroup (D, M); 

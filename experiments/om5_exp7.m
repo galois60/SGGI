@@ -1,7 +1,7 @@
 // want to check that the left and right parabolics are, 
 // in fact, involution centralizers.
 
-q := 7;  load "~/MagmaPackages/SGGI/data/PSp4/poly7.m";
+q := 13;  load "~/MagmaPackages/SGGI/data/PSp4/poly13.m";
 FULL := false;
 
 G := MyOmega (5, q);   Q := Identity (MatrixAlgebra (GF (q), 5));
@@ -25,6 +25,8 @@ end for;
 V := VectorSpace (GF (q), 5);
 
 "checking", #rpolys, "polytopes for q =", q, "...";
+IT2 := [ ];  IT3 := [ ];
+INTS := [ ];
 for i in [1..#rpolys] do
   "   ";
   "   polytope", i;
@@ -67,6 +69,15 @@ for i in [1..#rpolys] do
   assert D eq sub < G | tup[2] , tup[3] >;
   isit, x, y := IsDihedral (D);
   assert isit;
+  MD := GModule (D);
+  IMD := IndecomposableSummands (MD);
+  IVD := [ sub < V | [ V!(MD!(N.j)) : j in [1..Ngens (N)] ] > : N in IMD ];
+  "   indecomposable summands of D have dimensions", [ Dimension (U) : U in IVD ];
+  ind := [ InduceGroup (D, U) : U in IVD ];
+  "   induced group orders:", [ #X : X in ind ];
+  Append (~INTS, D);
+  Append (~IT2, [ InduceTransformation (tup[2], U) : U in IVD | Dimension (U) eq 1 ]);
+  Append (~IT3, [ InduceTransformation (tup[3], U) : U in IVD | Dimension (U) eq 1 ]);
   
   CD := Centraliser (G, D);   
   assert D0 subset CD;

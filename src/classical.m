@@ -84,6 +84,18 @@ return GL (n, k)!(C^-1 * i * C);
 end intrinsic; 
 
 
+intrinsic InduceTransformation (g::GrpMatElt, U::ModTupFld) -> GrpMat
+  {For a stabilizing U, return the matrix of the restriction of g to U.}
+   require BaseRing (Parent (g)) eq BaseRing (U) : "arguments must be defined over same ring";
+   require U * g eq U : "g must stabilize U";
+   e := Dimension (U);
+   K := BaseRing (U);
+   BU := Basis (U);
+   gU := GL (e, K)!Matrix ([ Coordinates (U, BU[j] * g) : j in [1..e] ]);
+return gU;
+end intrinsic;
+
+
 intrinsic InduceGroup (G::GrpMat, U::ModTupFld) -> GrpMat, Map
   {For G stabilizing U, return the group induced by G on U and the 
    homomorphism from G to this group.}
@@ -92,9 +104,12 @@ intrinsic InduceGroup (G::GrpMat, U::ModTupFld) -> GrpMat, Map
       "G must stabilize U";
    e := Dimension (U);
    K := BaseRing (U);
+/*
    BU := Basis (U);
    gens := [ GL (e, K)!Matrix ([ Coordinates (U, BU[j] * G.i) : j in [1..e] ]) :
                i in [1..Ngens (G)] ];
+*/
+   gens := [ InduceTransformation (G.i, U) : i in [1..Ngens (G)] ];
    H := sub < GL (e, K) | gens >;
    RandomSchreier (H);
    f := hom < G -> H | gens >; 
