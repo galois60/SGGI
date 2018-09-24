@@ -1,7 +1,7 @@
 // want to check that the left and right parabolics are, 
 // in fact, involution centralizers.
 
-q := 13;  load "~/MagmaPackages/SGGI/data/PSp4/poly13.m";
+q := 19;  load "~/MagmaPackages/SGGI/data/PSp4/poly19.m";
 FULL := false;
 
 G := MyOmega (5, q);   Q := Identity (MatrixAlgebra (GF (q), 5));
