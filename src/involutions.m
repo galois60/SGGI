@@ -1,3 +1,12 @@
+intrinsic InvolutionClassReps (G::Grp) -> SeqEnum , SeqEnum
+  {Return involution class representatives of G along with the class sizes.}
+  cl := ConjugacyClasses (G);
+  reps := [ c[3] : c in cl | c[1] eq 2 ];
+  sizes := [ c[2] : c in cl | c[1] eq 2 ];
+return reps, sizes;
+end intrinsic;
+  
+
 intrinsic Involutions (G::Grp) -> SeqEnum
   {Given a group, return all of its involutions.}
   cl := ConjugacyClasses (G);
@@ -56,21 +65,24 @@ end intrinsic;
 
 
 // given H acting by conjugation on class, return reps of H-classes
-intrinsic RefineClass (H::Grp, C::SeqEnum) -> SeqEnum
+intrinsic RefineClass (H::Grp, C::SeqEnum) -> SeqEnum, SeqEnum
   { Replace the H-invariant list C with a (possibly) smaller list 
     of representatives under the H-action. }
      if #C eq 0 then 
-         return [ ];
+         return [ ], [ ];
      end if;
      assert exists (r){ s : s in C };
      ref := [ r ];
      nclass := Conjugates (H, r);
+     sizes := [ #nclass ];
      while #nclass lt #C do
          assert exists (r){ s : s in C | not s in nclass };
-         nclass join:= Conjugates (H, r);
+         rclass := Conjugates (H, r);
+         nclass join:= rclass;
          Append (~ref, r);
+         Append (~sizes, #rclass);
      end while;
-return ref;
+return ref, sizes;
 end intrinsic;
 
 intrinsic OrbitReps (G::Grp, S::Set) -> SeqEnum, SeqEnum
