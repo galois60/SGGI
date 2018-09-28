@@ -297,7 +297,6 @@ assert #N div #R eq 4;
 
   // try to extend each of these polyhedra
   GRPS := [ ];
-  BAD3 := [ ];
   Cr0 := Centralizer (Om, r0);
     
 "---------------------";
@@ -311,22 +310,19 @@ assert #N div #R eq 4;
               "   polyhedron admits", #reps3, "r3 candidates";
       S3 := [ a : a in reps3 | sub<Om|r1,trip[3],a> meet R eq sub<Om|r1,trip[3]> ];
               "   of these,", #S3, "satisfy the intersection condition";
-      if #S3 eq 0 then
-         Append (~BAD3, r1);
-      else
-         GRPS cat:= [ sub < Om | Append (trip, reps3[j]) > : j in [1..#reps3] ];
-      end if;
+      GRPS cat:= [ sub<Om|trip cat [a]> : a in S3 ];
 "   =================";      
   end for;
   
-  BAD2 := Set (BAD2);   BAD3 := Set (BAD3);
-  BAD2 := [ a : a in BAD2 ];   BAD3 := [ a : a in BAD3 ];
-  GOOD := [ a : a in pre_reps1 | (not a in BAD1) and (not a in BAD2) and (not a in BAD3) ];
-
+/*  
+BAD2 := Set (BAD2);   BAD3 := Set (BAD3);
+BAD2 := [ a : a in BAD2 ];   BAD3 := [ a : a in BAD3 ];
+GOOD := [ a : a in pre_reps1 | (not a in BAD1) and (not a in BAD2) and (not a in BAD3) ];
 "we processed", #pre_reps1, "candidates for r1:";
 "   ", #BAD1, "did not admit polyedra for R = C(rho)";
 "   ", #BAD2, "did not admit a suitable r3";
 "   ", #BAD3, "admitted suitable r3 but none produced 4-polytopes";
+*/
 
 /*
 "geometric configuations of good r1:";
@@ -407,7 +403,8 @@ end for;
 "We found", #GRPS, "4-polytopes having Schlafli symbols:";
 { SchlafliSymbol (H) : H in GRPS };
   
-return GRPS, rho, r0, GOOD, BAD1, BAD2, BAD3;
+return GRPS, rho, r0; 
+//GOOD, BAD1, BAD2, BAD3;
 end function;
 
 PairClasses := function (q : SAN := false)
