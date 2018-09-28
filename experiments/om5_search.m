@@ -204,6 +204,7 @@ Omega5_NewSearch := function (q)
   // set up <rho>
   l := sub < V | V.4 , V.5 >;
   TYPE := IdentifyLineType (Q, l);
+  if (q mod 4 eq 1) then m := (q-1); else m := (q+1); end if;
   rho := InvolutionOdd (PerpSpace (Q, l), l);   assert rho in Om;
   N := Centralizer (G, rho);
   R := Centralizer (Om, rho);
@@ -217,6 +218,8 @@ assert #N div #R eq 4;
   r0 := InvolutionOdd (PerpSpace (Q, l0), l0);   assert r0 in R;
   CR0 := Centralizer (R, r0);
   CN0 := Centralizer (N, r0);
+"|CN0| =", #CN0;
+"8 * |O_2(TYPE)| =", 16 * m;
 
   T0 := [ c[3] : c in ConjugacyClasses (CR0) | c[1] eq 2 ];
   T0 := [ a : a in T0 | Dimension (Eigenspace (a, 1)) eq 1 ];
@@ -240,7 +243,6 @@ assert #N div #R eq 4;
   s1 := reps0[3-j];   // the other rep
   X1 := Conjugates (R, s1);   // the entire "opposite" class
 "there are", #X1, "involutions in R of the opposite sort as r0";
-  if (q mod 4 eq 1) then m := (q-1); else m := (q+1); end if;
   Y1 := [ a : a in X1 | Order (a * r0) eq m ];
 "of these,", #Y1, "are such that the product with r0 has order", m;
       // the centralizer in N of r0 acts on this set; we need only consider orbit reps
@@ -262,6 +264,9 @@ assert #N div #R eq 4;
     Y3 := [ a : a in X3 | not a in R and Dimension (Eigenspace (a, 1)) eq 3 ];
     reps3 := RefineClass (CGR, [ a : a in Y3 ]);
     if #reps3 gt 0 then
+"r1 =", r1;
+"restrict to l:", InduceTransformation (r1, l);
+"restrict to l^perp:", InduceTransformation (r1, PerpSpace (Q, l));
       Append (~reps1, r1);
       Append (~sizes1, pre_sizes1[i]);
       Append (~REPS3, reps3);
@@ -484,26 +489,51 @@ __basics := function (q)
   Q := Identity (MatrixAlgebra (k, 5));
   G := MyGO (5, q);
   Om := MyOmega (5, q); 
+  if (q mod 4 eq 1) then m := (q-1); else m := (q+1); end if;
   // set up <rho>
   l := sub < V | V.4 , V.5 >;
+  P := PerpSpace (Q, l);
   TYPE := IdentifyLineType (Q, l);
-  rho := InvolutionOdd (PerpSpace (Q, l), l);   assert rho in Om;
+"TYPE =", TYPE;
+  if TYPE eq "hyperbolic" then OTHER := "asingular"; else OTHER := "hyperbolic"; end if;
+"OTHER =", OTHER;
+  rho := InvolutionOdd (P, l);   assert rho in Om;
   N := Centralizer (G, rho);
   R := Centralizer (Om, rho);
   assert #N div #R eq 4;
+  Icl := InvolutionClassReps (R);
+  Icl := [ a : a in Icl | Dimension (Eigenspace (a, 1)) eq 3 ];
+  Icl := [ a : a in Icl | (not Eigenspace (a, -1) subset P) and (a ne rho) ];
+  assert #Icl eq 2;
   // fix <r0> 
   l0 := sub < V | V.1 , V.5 >;
   assert IdentifyLineType (Q, l0) eq TYPE;
   r0 := InvolutionOdd (PerpSpace (Q, l0), l0);   assert r0 in R;
+"rho--ro config:", __config (Q, r0, rho);
+  i := WhichClass (R, Icl, r0);
+  s := Icl[3-i];
+  X := Conjugates (N, s);
   R0 := Centralizer (R, r0);
   N0 := Centralizer (N, r0);
-  cl := ConjugacyClasses (R);
-  cl := [ c[3] : c in cl | (c[1] eq 2) and ((c[3], r0) ne Identity (R)) ];
-  I := &join [ Conjugates (R, a) : a in cl ];
-  I := [ a : a in I ];
-  R0cl := RefineClass (R0, I);
-  N0cl := RefineClass (N0, I);
-return rho, r0, N, R, N0, R0, N0cl, R0cl;
+  Y, sizes := RefineClass (N0, [ a : a in X | Order (a * r0) eq m ]);
+"there are", #Y, "good involution classes, with sizes", sizes;
+"and configurations", [ __config (Q, a, rho) : a in Y ];
+"-------";
+  // now we want to replicate these orbits geometrically 
+  line := { sub < V | v > : v in l | InnerProduct (v, v) ne 0 };
+"there are", #line, "nonsingular points on l";   assert #line eq m;
+  line_minus := [ x : x in line | MyWittIndex (Q, PerpSpace (Q, x)) eq 1 ];
+"   of these,", #line_minus, "are of minus type";
+  plane := { sub < V | v > : v in P | InnerProduct (v, v) ne 0 };
+"there are", #plane, "nonsingular points on on P";   assert #plane eq q^2;
+  plane_minus := [ x : x in plane | MyWittIndex (Q, PerpSpace (Q, x)) eq 1 ];
+"   of these,", #plane_minus, "are of minus type";
+  LINES := { sub < V | x , y > : x in line_minus, y in plane_minus };
+  assert forall { n : n in LINES | IdentifyLineType (Q, n) eq TYPE };
+"these pairs produce", #LINES, "lines";
+  REPS, SIZES := OrbitReps (N0, LINES);
+"under the action of C_N(r0), there are", #REPS, "orbits of sizes", SIZES;
+return line;
 end function;
   
   
