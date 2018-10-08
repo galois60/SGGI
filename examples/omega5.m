@@ -37,8 +37,49 @@ __get_scalars := function (q)
       Append (~A, a);
     end if;
   end for;
+  "q =", q;
+  "A0 =", #A0;
+  "A =", #A;
+  "B =", #B;
+  "phi(m) =", EulerPhi (m);
 return A0, A, B;
 end function;
+
+
+GenericConstruction := function (q)
+
+  k := GF (q);
+  K<a,b> := RationalFunctionField (k, 2);
+  G := GL (5, K);
+  
+  r := G![ -1, 0, 0, 0, 0,
+            0, 1, 0, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 0, 1, 0,
+            0, 0, 0, 0, -1 ];
+           
+  ra := G![ __f(a), __g(a),   0,     0,      0,
+            __g(a), -__f(a),  0,     0,      0,
+               0  ,    0   ,  1,     0,      0,
+               0  ,    0   ,  0,  -__f(a), __g(a), 
+               0  ,    0   ,  0,   __g(a), __f(a) ];  
+               
+  tb := G![    1,      0,     0,     0,      0,
+               0 , -__f(b), __g(b),  0,      0,
+               0 ,  __g(b), __f(b),  0,      0,
+               0  ,    0   ,  0,     1,      0, 
+               0  ,    0   ,  0,     0,      1 ];
+               
+  s := G![  0, 0, 0, 0, 1,
+            0, 0, 0, 1, 0,
+            0, 0, 1, 0, 0,
+            0, 1, 0, 0, 0,
+            1, 0, 0, 0, 0 ];
+            
+return [r, ra, tb, s];
+end function;
+
+
 
 Omega5_All_4Polytopes := function (p, e)
 
