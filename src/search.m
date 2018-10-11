@@ -26,7 +26,7 @@ __Extend_Rank := function (G, TUPLES, INVS)
                         and (j, T[s]) ne Identity (G) ];
          // refine class under the centraliser of <L> in <G>
          CL := Centraliser (G, L);
-         TINVS := RefineClass (TINVS, CL);
+         TINVS := RefineClass (CL, TINVS);
          // see which of them will satisfy the intersection condition
          for j in TINVS do
                  if forall { a : a in [2..s] | 
@@ -107,7 +107,7 @@ intrinsic AllMaximalStringCSubgroups (G::Grp, r::RngIntElt :
          tt := Cputime ();
          C0 := Centraliser (G, i0); 
          I2 := [ j : j in INVS | (i0, j) eq Identity (G) and i0 ne j ];
-         R2 := RefineClass (I2, C0);
+         R2 := RefineClass (C0, I2);
          
          for i2 in R2 do
      
@@ -116,7 +116,7 @@ intrinsic AllMaximalStringCSubgroups (G::Grp, r::RngIntElt :
             C02 := Centraliser (G, D02);
             I1 := [ j : j in INVS | (i0, j) ne Identity (G) 
                                 and (i2, j) ne Identity (G) ];    
-            R1 := RefineClass (I1, C02);
+            R1 := RefineClass (C02, I1);
             GOOD1 := [ j : j in R1 | #(sub<G|i0,j> meet sub<G|i2,j>) eq 2 ];
             TRIPS cat:= [ [ i0 , i1 , i2 ] : i1 in GOOD1 ]; 
      
