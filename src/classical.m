@@ -104,11 +104,6 @@ intrinsic InduceGroup (G::GrpMat, U::ModTupFld) -> GrpMat, Map
       "G must stabilize U";
    e := Dimension (U);
    K := BaseRing (U);
-/*
-   BU := Basis (U);
-   gens := [ GL (e, K)!Matrix ([ Coordinates (U, BU[j] * G.i) : j in [1..e] ]) :
-               i in [1..Ngens (G)] ];
-*/
    gens := [ InduceTransformation (G.i, U) : i in [1..Ngens (G)] ];
    H := sub < GL (e, K) | gens >;
    RandomSchreier (H);

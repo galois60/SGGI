@@ -2,6 +2,7 @@
   src
   {
         properties.m
+        standard.m
         classical.m
         involutions.m
         search.m

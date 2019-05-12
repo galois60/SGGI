@@ -7,6 +7,7 @@ S,PreservesQuadraticForm,Check if G is a group of isometries of the quadratic fo
 S,RestrictBilinearForm,Restrict the bilinear form F to the subspace U,0,2,0,0,0,0,0,0,0,159,,0,0,-34,,-34,-38,-38,-38,-38,-38
 S,RestrictQuadraticForm,Restrict the quadratic form Q to the subspace U,0,2,0,0,0,0,0,0,0,159,,0,0,-34,,-34,-38,-38,-38,-38,-38
 S,InvolutionOdd,"In a field of odd characteristic, the involution inducing 1 on Ep and -1 on Em",0,2,0,0,0,0,0,0,0,159,,0,0,159,,180,-38,-38,-38,-38,-38
+S,InduceTransformation,"For a stabilizing U, return the matrix of the restriction of g to U",0,2,0,0,0,0,0,0,0,159,,0,0,180,,178,-38,-38,-38,-38,-38
 S,InduceGroup,"For G stabilizing U, return the group induced by G on U and the homomorphism from G to this group",0,2,0,0,0,0,0,0,0,159,,0,0,178,,178,175,-38,-38,-38,-38
 S,IsNonsingularOrthogonalSpace,Decide if Q is a nonsingular quadratic form on its underlying module,0,1,0,0,0,0,0,0,0,-34,,36,-38,-38,-38,-38,-38
 S,IsHyperbolicLine,Decide if U is a hyperbolic line relative to quadratic form Q,0,2,0,0,0,0,0,0,0,159,,0,0,-34,,36,160,160,-38,-38,-38
