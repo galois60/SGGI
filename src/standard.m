@@ -29,15 +29,6 @@ return H;
 end intrinsic;
 
 
-intrinsic Dual (H::SGGI) -> SGGI
-  {The dual of the SGGI H.}
-  J := H;
-  J`DistGens := Reverse (H`DistGens);
-  J`SchlafliType := Reverse (H`SchlafliType);
-  J`AsGrp := sub < H`AsGrp | J`DistGens >;
-return J;
-end intrinsic;
-
 
 // rank reduction via Petrie-like constructions
 intrinsic LeftPetrie (H::SGGI) -> SGGI
