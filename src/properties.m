@@ -178,13 +178,94 @@ intrinsic 'eq' (H::SGGI, J::SGGI) -> BoolElt
 end intrinsic;
 
 
-/*
-intrinsic IsIsomorphic (H::SGGI, J::SGGI) -> BoolElt
+intrinsic IsIsomorphic (H::SGGI, J::SGGI) -> BoolElt, HomGrp
   {Decide whether two SGGIs are isomorphic.}
 
+  if Rank (H) ne Rank (J) then
+      return false, _;
+  end if;
+
+  if #Group (H) ne #Group (J) then
+      return false, _;
+  end if;
+
+return IsHomomorphism (Group (H), Group (H), Generators (J));
+
+end intrinsic;
+
+
+/*
+   ***** obsolete attempt at isomorphism testing for SGGIs *****
+   ***** may revisit at some point, but direct way better  *****
+
+// is list S a translate of list T under the action of G?
+__IsTranslate := function (G, S, T)
+  if S eq [] then
+      return true, Identity (G);
+  else
+      s := S[1];   t := T[1];
+      // test and make sure this is the best way to find g
+      flag := exists (g){ h : h in G | t^h eq s };
+      if flag then
+          Gs := Stabilizer (G, s);
+          rf, h := $$ (Gs, [S[i] : i in [2..#S]], [T[i]^g : i in [2..#T]]);
+          if rf then
+              return true, g * h;
+          else
+              return false, _;
+          end if;
+      else
+          return false, _;
+      end if;
+  end if;
+end function;
+
+// compute action of Aut(G) (or conj action of G if AUTO = false) on involutions of G
+__ActionOnInvolutions := function (G : AUTO := true)
+  DOM := Involutions (G);
+  n := #DOM;
+  S := SymmetricGroup (n);
+  if AUTO then
+      A := AutomorphismGroup (G);
+      gens := [ S![ Position (DOM, DOM[i] @ (A.j)) : i in [1..n] ] : 
+                           j in [1..Ngens (A)] ];
+  else
+      gens := [ S![ Position (DOM, DOM[i] ^ (G.j)) : i in [1..n] ] : 
+                           j in [1..Ngens (G)] ];
+  end if;
+  // NOTE: can create homomorphism A -> ACT if we require conjugating element
+  ACT := sub < S | gens >;
+return ACT, DOM;
+end function;
+
+intrinsic IsIsomorphic (H::SGGI, J::SGGI : 
+                             AUTO := true,   // full autos acting or just inner
+                             ACTING_GROUP := false,   
+                             DOMAIN := []  
+                       ) -> BoolElt
+  {Decide whether two SGGIs are isomorphic.}
+
+  S := Generators (H);
+  T := Generators (J);
+  G := Group (H);
+
+  if DOMAIN eq [] then
+      assert Type (ACTING_GROUP) eq BoolElt;
+      ACTING_GROUP, DOMAIN := __ActionOnInvolutions (G : AUTO := AUTO);
+  end if;
+
+  require Type (ACTING_GROUP) eq GrpPerm : "acting group not a per group";
+
+  S := [ Position (DOMAIN, S[i]) : i in [1..#S] ];
+  T := [ Position (DOMAIN, T[i]) : i in [1..#T] ];
+
+  isit, _ := __IsTranslate (ACTING_GROUP, S, T);
+
+return isit;
 
 end intrinsic;
 */
+
 
 
 

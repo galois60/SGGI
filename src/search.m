@@ -54,7 +54,7 @@ end function;
   string C sequences.
 */
 
-__ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false)
+__ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false, IsoFilter := true)
 
      /* if no involution class reps are specified, compute them all */
      if ICReps eq [ ] then
@@ -123,7 +123,14 @@ __ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false)
              else 
                   H`HasIP := true;
              end if;
-             Append (~SGGIs, H);
+             // filter out duplicates
+             if IsoFilter then
+                 if not exists { J : J in SGGIs | IsIsomorphic (H, J) or IsIsomorphic (H, Dual (J)) } then
+                     Append (~SGGIs, H);
+                 end if;
+             else
+                 Append (~SGGIs, H);
+             end if;
          end if;
      end for;
 
@@ -133,15 +140,16 @@ end function;
 
 
 intrinsic AllStringCReps (G::GrpPerm, r::RngIntElt :
-    ICReps := [ ],    // if non-empty, restrict to conjugates of this list
-    SanityCheck := false   // don't bother to verify the string C sequences
+    ICReps := [ ],          // if non-empty, restrict to conjugates of this list
+    SanityCheck := false,   // don't bother to verify the string C sequences
+    IsoFilter := true       // only return distinct SGGIs distinct up to iso and duality
                            ) -> SeqEnum
     
   { Find by brute force search all string C generating sequences in G.}
 
    require r gt 2 : "rank of string C-group must be at least 3";
 
-return __ExhaustiveSearch (G, r : ICReps := ICReps , SanityCheck := SanityCheck);
+return __ExhaustiveSearch (G, r : ICReps := ICReps , SanityCheck := SanityCheck, IsoFilter := IsoFilter);
 
 end intrinsic;
 
