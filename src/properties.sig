@@ -14,3 +14,4 @@ S,IsStringCGroup,Test whether SGGI is a string C-group,0,1,0,0,0,0,0,0,0,SGGI,,3
 S,IsStringCGroup,Test whether G is a string C-group on its given generator list,0,1,0,0,0,0,0,0,0,-27,,36,-38,-38,-38,-38,-38
 S,eq,Basic equality test for SGGIs,0,2,0,0,0,0,0,0,0,SGGI,,0,0,SGGI,,36,-38,-38,-38,-38,-38
 S,IsIsomorphic,Decide whether two SGGIs are isomorphic,0,2,0,0,0,0,0,0,0,SGGI,,0,0,SGGI,,36,141,-38,-38,-38,-38
+S,IsInnerIsomorphic,Decide whether two SGGIs (have the same parent group and) are inner isomorphic,0,2,0,0,0,0,0,0,0,SGGI,,0,0,SGGI,,36,-28,-38,-38,-38,-38

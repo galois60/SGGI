@@ -95,7 +95,9 @@ end intrinsic;
 
 intrinsic Dual (H::SGGI) -> SGGI
   {The dual of an SGGI.}
-  J := H;
+  G := Group (H);
+  G := sub < G | Reverse ([ G.i : i in [1..Ngens (G)] ]) >;
+  J := StringGroupGeneratedByInvolutions (G);
   J`DistGens := Reverse (H`DistGens);
   J`SchlafliType := Reverse (H`SchlafliType);
   J`AsGrp := sub < H`AsGrp | J`DistGens >;
@@ -180,35 +182,39 @@ end intrinsic;
 
 intrinsic IsIsomorphic (H::SGGI, J::SGGI) -> BoolElt, HomGrp
   {Decide whether two SGGIs are isomorphic.}
-
   if Rank (H) ne Rank (J) then
       return false, _;
   end if;
-
   if #Group (H) ne #Group (J) then
       return false, _;
   end if;
-
-return IsHomomorphism (Group (H), Group (H), Generators (J));
-
+return IsHomomorphism (Group (H), Group (J), Generators (J));
 end intrinsic;
 
 
-/*
-   ***** obsolete attempt at isomorphism testing for SGGIs *****
-   ***** may revisit at some point, but direct way better  *****
+intrinsic IsEquivalent (H::SGGI, J::SGGI) -> BoolElt
+  {Decide whether two SGGIs are equivalent up to isomorphism and duality.}
+  isit, _ := IsIsomorphic (H, J);
+  if isit then 
+    return true;
+  else
+    isit, _ := IsIsomorphic (H, Dual (J));
+    if isit then return true; end if;
+  end if;
+return false;
+end intrinsic; 
 
-// is list S a translate of list T under the action of G?
-__IsTranslate := function (G, S, T)
+// is list T a G-conjugate of list S?
+__IsConjugate := function (G, S, T)
   if S eq [] then
       return true, Identity (G);
   else
       s := S[1];   t := T[1];
       // test and make sure this is the best way to find g
-      flag := exists (g){ h : h in G | t^h eq s };
+      flag, g := IsConjugate (G, t, s);
       if flag then
-          Gs := Stabilizer (G, s);
-          rf, h := $$ (Gs, [S[i] : i in [2..#S]], [T[i]^g : i in [2..#T]]);
+          C := Centralizer (G, s);
+          rf, h := $$ (C, [S[i] : i in [2..#S]], [T[i]^g : i in [2..#T]]);
           if rf then
               return true, g * h;
           else
@@ -219,6 +225,24 @@ __IsTranslate := function (G, S, T)
       end if;
   end if;
 end function;
+
+
+intrinsic IsInnerIsomorphic (H::SGGI, J::SGGI) -> BoolElt, GrpElt
+  {Decide whether two SGGIs (have the same parent group and) are inner isomorphic.}
+  if Rank (H) ne Rank (J) then
+      return false, _;
+  end if;
+  if exists { h : h in Generators (H) | not h in Group (J) } then
+      return false, _;
+  end if;
+  isit, g := __IsConjugate (Group (J), Generators (J), Generators (H));
+  if not isit then return false; end if;
+return true, g;
+end intrinsic;
+
+/*
+   ***** obsolete attempt at isomorphism testing for SGGIs *****
+   ***** may revisit at some point, but direct way better  *****
 
 // compute action of Aut(G) (or conj action of G if AUTO = false) on involutions of G
 __ActionOnInvolutions := function (G : AUTO := true)

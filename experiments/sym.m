@@ -1,67 +1,68 @@
-n := 7;
-G := SymmetricGroup (n);
-polys := [* *];
-
 /* 
-    makeshift isomorphism tester for symmetric groups
-    for n > 6, Aut(S_n) = S_n
+  Experiment to see which string C-group representations of Sym(n)
+  are not rank-reducible, which a not rank-inflatable, and which
+  are neither.
 
-    when the generic iso tester is built hardwire it 
-    into search functions.
+  Define the following terms:
+     ISLAND = any SGGI that isn't a reduction and cannot be reduced
+     ROOT = any SGGI of rank [3..n-3] that isn't a reduction
+     LEAF = any SGGI of rank [4..n-2]
 */
 
-ISO := function (H1, H2)
-    assert Group (H1) eq Group (H2);
-    n := Degree (Group (H1));
-    X1 := Generators (H1);
-    X2 := Generators (H2);
-    flag := exists (g){ y : y in SymmetricGroup (n) | 
-                        forall {i : i in [1..#X1] | X1[i]^y eq X2[i] } };
-    if flag then
-        return true, g;
-    else 
-        return false, _;
-    end if;
-end function;
+n := 8;
+G := SymmetricGroup (n);
 
-__clean := function (L)
-  CL := [ L[1] ];
-  for i in [2..#L] do
-    H2 := L[i];
-    if not exists {H1 : H1 in CL | ISO (H1, H2) or ISO (Dual(H1), H2)} then
-      Append (~CL, H2);
+ALL := [ AllStringCReps (G, r) : r in [n-2..3 by -1] ];
+assert #ALL[1][1] eq 1;
+
+
+ROOTS := { ALL[1][1] };
+
+
+
+for i in [1..n-4] do
+  Ei := [ ];
+  Ai := ALL[i];
+  for j in [1..#Ai] do
+    H := Ai[j];
+    HL := LeftPetrie (H);
+    if HasIntersectionProperty (HL) and (#Group(HL) eq #Group(H)) then
+         assert exists (k){ l : l in [1..#ALL[i+1]] | IsEquivalent (HL, ALL[i+1][l]) };
+         Append (~Ei, [j, k]);
+    end if;
+    HR := RightPetrie (H);
+    if HasIntersectionProperty (HR) and (#Group(HR) eq #Group(H)) then
+         assert exists (k){ l : l in [1..#ALL[i+1]] | IsEquivalent (HR, ALL[i+1][l]) };
+        Append (~Ei, [j, k]);
     end if;
   end for;
-return CL;
-end function;
-
-/*
-for r in [3..n-1] do
-"r =", r;
-    L := AllStringCReps (G, r);
-    "  raw:", #L;
-    CL := __clean (L);
-    "  filtered:", #CL;
-    Append (~polys, CL);
-"-----------";
+  Append (~edges, Ei);
 end for;
-*/
+edges;
 
-// plan: separate the polys of a fixed rank that cannot be
-// inflated from those that can; do this by reducing down 
-// and seeing which ones get hit.
-// do we notice anything obvious that distinguishes the sets?
-
-// quick timing comparison ...
-n := 10;
-SYM := SymmetricGroup (n+1);
-gens := [ SYM!(i, i+1) : i in [1..n] ];
-G := sub < SYM | gens >;
-tt := Cputime ();
-//assert IsStringCGroup (G);
-//"magma function time:", Cputime (tt);
-H := StringGroupGeneratedByInvolutions (G);
-tt := Cputime ();
-assert IsStringCGroup (H);
-
-// magma functions burn through memory quickly
+__PROFILE := function (E, nums)
+  roots := [ ];
+  leaves := [ ];
+  islands := [ ];
+  for i in [1..#nums] do
+    for j in [1..nums[i]] do
+      // is [i,j] a root, a leaf, both (i.e. an island) or neither?
+      if (i eq 1) then
+           Rij := true;
+      else
+           Rij := not exists { e : e in E[i-1] | e[2] eq j };
+      end if;
+      Lij := not exists { e : e in E[i] | e[1] eq j };
+      if Rij then
+        if Lij then
+          Append (~islands, [i,j]);
+        else 
+          Append (~roots, [i,j]);
+        end if;
+      elif Lij then
+        Append (~leaves, [i,j]);
+      end if;
+    end for;
+  end for;
+return roots, leaves, islands;
+end function;

@@ -125,7 +125,7 @@ __ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false, Iso
              end if;
              // filter out duplicates
              if IsoFilter then
-                 if not exists { J : J in SGGIs | IsIsomorphic (H, J) or IsIsomorphic (H, Dual (J)) } then
+                 if not exists { J : J in SGGIs | IsEquivalent (H, J) } then
                      Append (~SGGIs, H);
                  end if;
              else
@@ -145,7 +145,8 @@ intrinsic AllStringCReps (G::GrpPerm, r::RngIntElt :
     IsoFilter := true       // only return distinct SGGIs distinct up to iso and duality
                            ) -> SeqEnum
     
-  { Find by brute force search all string C generating sequences in G.}
+  { Find by brute force search all string C generating sequences in G
+    up to isomorphism and duality. }
 
    require r gt 2 : "rank of string C-group must be at least 3";
 
