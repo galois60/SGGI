@@ -4,7 +4,6 @@
 
 intrinsic CoxeterMatrix (T::SeqEnum[RngIntElt]) -> Mtrx
   {The Coxeter matrix for a reflection group from its Schlafli type}
-
   n := 1 + #T;
   M := Matrix (Integers (), n, n, [ 2 : i in [1..n^2] ]);
   for i in [1..n-1] do
@@ -27,7 +26,6 @@ intrinsic Simplex (n::RngIntElt) -> SGGI
   H`HasIP := true;
 return H;
 end intrinsic;
-
 
 
 // rank reduction via Petrie-like constructions
