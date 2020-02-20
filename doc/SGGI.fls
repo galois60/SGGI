@@ -1,0 +1,435 @@
+PWD c:\Magma\SGGI\doc
+INPUT C:\Users\pbrooksb\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\Magma\SGGI\doc\SGGI.tex
+OUTPUT c:\Magma\SGGI\doc\SGGI.log
+INPUT c:\Magma\SGGI\doc\documentation.cls
+INPUT c:\Magma\SGGI\doc\documentation.cls
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsbook.cls
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsbook.cls
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\amsrefs.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\amsrefs.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\pcatcode.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\pcatcode.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\ifoption.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\ifoption.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\rkeyval.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\rkeyval.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\textcmds.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\textcmds.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\mathscinet.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsrefs\mathscinet.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\framed\framed.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\framed\framed.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\anyfontsize\anyfontsize.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\anyfontsize\anyfontsize.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\verbatim.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\verbatim.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\minitoc.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\minitoc.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\mtcmess.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\mtcmess.sty
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc0
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc
+INPUT c:\Magma\SGGI\doc\SGGI.mtc0
+INPUT c:\Magma\SGGI\doc\SGGI.mtc0
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc0
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\acadian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\acadien.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\afrikaan.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\afrikaans.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\albanian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\american.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\arab.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\arab2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\arabi.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\arabic.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\armenian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\australian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\austrian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bahasa.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bahasai.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bahasam.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bangla.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\basque.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bengali.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bicig.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bicig2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bicig3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bithe.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\brazil.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\brazilian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\breton.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\british.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bulgarian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\bulgarianb.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\buryat.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\buryat2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\canadian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\canadien.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\castillan.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\castillian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\catalan.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\chinese1.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\chinese1.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\chinese2.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\chinese2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\croatian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\czech.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\danish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\devanagari.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\dutch.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\english.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\english1.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\english2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\esperant.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\esperanto.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\estonian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ethiopia.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ethiopian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ethiopian2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\farsi1.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\farsi1.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\farsi2.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\farsi2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\farsi3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\finnish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\finnish2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\francais.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\french.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\french1.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\french2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\frenchb.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\frenchle.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\frenchpro.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\galician.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\german.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\germanb.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\germanb2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\greek.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\greek-mono.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\greek-polydemo.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\greek-polykatha.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\guarani.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul1.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul1.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul2.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul3.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul4.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul4.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul-u8.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hangul-u8.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hanja1.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hanja1.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hanja2.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hanja2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hanja-u8.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hanja-u8.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hebrew.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hebrew2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hindi.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hindi-modern.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\hungarian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\icelandic.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\indon.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\indonesian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\interlingua.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\irish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\italian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\italian2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese2.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese3.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese4.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese4.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese5.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese5.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese6.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\japanese6.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\kannada.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\khalkha.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\latin.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\latin2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\latinc.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\latinc2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\latvian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\latvian2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\letton.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\letton2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\lithuanian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\lithuanian2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\lowersorbian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\lsorbian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\magyar.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\magyar2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\magyar3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malay.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-b.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-keli.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-keli2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-mr.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-omega.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-omega.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-rachana.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-rachana2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\malayalam-rachana3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\manju.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\mexican.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\meyalu.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\mongol.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\mongolb.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\mongolian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\naustrian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ngerman.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\newzealand.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ngermanb.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ngermanb2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\norsk.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\norsk2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\nynorsk.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\nynorsk2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\occitan.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\occitan2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\polish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\polish2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\polski.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\portuges.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\portuguese.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\romanian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\romanian2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\romanian3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russianb.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russianc.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian2m.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian2o.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-cca.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-cca.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-cca1.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-cca1.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lh.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lh.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lhcyralt.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lhcyralt.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lhcyrkoi.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lhcyrkoi.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lhcyrwin.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\russian-lhcyrwin.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\samin.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\scottish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\serbian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\serbianc.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\slovak.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\slovene.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\spanish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\spanish2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\spanish3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\spanish4.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\swahili.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\swedish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\swedish2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\thai.mlo
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\thai.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\turkish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\uighur.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\uighur2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\uighur3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\UKenglish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ukraineb.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\ukrainian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\uppersorbian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\USenglish.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\usorbian.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\vietnam.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\vietnamese.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\welsh.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\xalx.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\xalx2.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\xalx3.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\english.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\english.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\english.mld
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\minitoc\english.mld
+OUTPUT c:\Magma\SGGI\doc\SGGI.idx
+INPUT c:\Magma\SGGI\doc\SGGI.aux
+INPUT c:\Magma\SGGI\doc\SGGI.aux
+OUTPUT c:\Magma\SGGI\doc\SGGI.aux
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr9.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi9.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy9.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex9.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
+INPUT c:\Magma\SGGI\doc\SGGI.out
+INPUT c:\Magma\SGGI\doc\SGGI.out
+INPUT c:\Magma\SGGI\doc\SGGI.out
+INPUT c:\Magma\SGGI\doc\SGGI.out
+OUTPUT c:\Magma\SGGI\doc\SGGI.pdf
+INPUT c:\Magma\SGGI\doc\SGGI.out
+INPUT c:\Magma\SGGI\doc\SGGI.out
+OUTPUT c:\Magma\SGGI\doc\SGGI.out
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT c:\Magma\SGGI\doc\SGGI.toc
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc1
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc2
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc3
+OUTPUT c:\Magma\SGGI\doc\SGGI.mtc4
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx12.tfm
+INPUT c:\Magma\SGGI\doc\SGGI.toc
+INPUT c:\Magma\SGGI\doc\SGGI.toc
+OUTPUT c:\Magma\SGGI\doc\SGGI.toc
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmcsc10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmti10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmtt12.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmti9.tfm
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmbx9.tfm
+INPUT c:\Magma\SGGI\doc\SGGI.ind
+INPUT c:\Magma\SGGI\doc\SGGI.ind
+OUTPUT c:\Magma\SGGI\doc\SGGI.maf
+INPUT c:\Magma\SGGI\doc\SGGI.mtc
+INPUT c:\Magma\SGGI\doc\SGGI.mtc0
+INPUT c:\Magma\SGGI\doc\SGGI.mtc3
+INPUT c:\Magma\SGGI\doc\SGGI.mtc2
+INPUT c:\Magma\SGGI\doc\SGGI.mtc1
+INPUT c:\Magma\SGGI\doc\SGGI.aux
+INPUT c:\Magma\SGGI\doc\SGGI.out
+INPUT c:\Magma\SGGI\doc\SGGI.out
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx9.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmbx9.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr9.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmr9.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmti9.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmti9.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmtt12.pfb
+INPUT C:\Users\pbrooksb\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmtt12.pfb

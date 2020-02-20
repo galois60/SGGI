@@ -93,17 +93,6 @@ return __GetSGGI (G);
 end intrinsic;
 
 
-intrinsic Dual (H::SGGI) -> SGGI
-  {The dual of an SGGI.}
-  G := Group (H);
-  G := sub < G | Reverse ([ G.i : i in [1..Ngens (G)] ]) >;
-  J := StringGroupGeneratedByInvolutions (G);
-  J`DistGens := Reverse (H`DistGens);
-  J`SchlafliType := Reverse (H`SchlafliType);
-  J`AsGrp := sub < H`AsGrp | J`DistGens >;
-return J;
-end intrinsic;
-
 
      /*----- basic access funcions for SGGIs -----*/
 

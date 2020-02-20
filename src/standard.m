@@ -27,9 +27,35 @@ intrinsic Simplex (n::RngIntElt) -> SGGI
 return H;
 end intrinsic;
 
+/*---- DUALS ----*/
+
+// the standard dual of an SGGI
+intrinsic Dual (H::SGGI) -> SGGI
+  {The dual of an SGGI.}
+  G := Group (H);
+  G := sub < G | Reverse ([ G.i : i in [1..Ngens (G)] ]) >;
+  J := StringGroupGeneratedByInvolutions (G);
+  J`DistGens := Reverse (H`DistGens);
+  J`SchlafliType := Reverse (H`SchlafliType);
+  J`AsGrp := sub < H`AsGrp | J`DistGens >;
+return J;
+end intrinsic;
+
+
+// the Petrie dual of an SGGI
+intrinsic PetrieDual (H::SGGI) -> SGGI
+  {The Petrie dual of an SGGI.}
+  require Rank (H) gt 2 : "the rank of H must be at least 3";
+  G := H`AsGrp;
+  gens := [ H`DistGens[1], H`DistGens[2] , H`DistGens[1] * H`DistGens[3] ] cat [ H`DistGens[i] : i in [4..Rank (H)] ];
+  GG := sub < G | gens >;
+  J := StringGroupGeneratedByInvolutions (GG);
+return J;
+end intrinsic;
+
 
 // rank reduction via Petrie-like constructions
-intrinsic LeftPetrie (H::SGGI) -> SGGI
+intrinsic PetrieReduction (H::SGGI) -> SGGI
   {The reduced rank SGGI obtained from H by the (left) Petrie-like construction.}
   require Rank (H) gt 3 : "the rank of H must be at least 4";
   G := H`AsGrp;
@@ -47,14 +73,6 @@ intrinsic LeftPetrie (H::SGGI) -> SGGI
 return J;
 end intrinsic;
 
-
-intrinsic RightPetrie (H::SGGI) -> SGGI 
-  {The reduced rank SGGI obtained from H by the (right) Petrie-like construction.}
-  require Rank (H) gt 3 : "the rank of H must be at least 4"; 
-  J := Dual (H);
-  J := LeftPetrie (J);
-return Dual (J);
-end intrinsic;
 
 
 intrinsic ModularReflectionGroup (T::SeqEnum[RngIntElt], p::RngIntElt) -> SGGI
