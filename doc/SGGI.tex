@@ -196,10 +196,38 @@ true
 
 \section{Isomorphism Testing}
 \label{sec:construct}
+Two SGGIs $H$ and $J$ of rank $n$, with distinguished involution sequences $[h_1,\ldots,h_n]$ and $[j_1,\ldots,j_n]$
+are {\bf isomorphic} if there is an isomorphism of the underlying groups sending one generating sequence to the other.
+The SGGIs are {\bf equivalent} is either they are isomorphic, or $H$ is isomorphic to the dual of $J$. These conditions
+are tested as follows:
+\begin{intrinsics}
+IsIsomorphic(H,J) : SGGI , SGGI -> BoolElt
+IsEquivalent(H,J) : SGGI , SGGI -> BoolElt
+\end{intrinsics}
 
 
 \chapter{String C-groups}
+\label{sec:string-C-gp}
+An SGGI $H$ of rank $n$ with distinguished involution sequence $[h_1,\ldots,h_n]$
+satisfies the {\bf intersection property} if
+\begin{align}
+\forall I,J\subseteq [n] && \langle h_i\mid i\in I \rangle \cap \langle h_j\mid j\in J\rangle = \langle h_k\mid k\in I\cap J\rangle.
+\end{align}
+An SGGI that satisfies this condition is called a {\bf string C-group}.
+\begin{intrinsics}
+HasIntersectionProperty(H) : SGGI -> BoolElt
+IsStringCGroup(H) : SGGI  -> BoolElt
+\end{intrinsics}
 
+\section{Search Functions}
+\label{sec:search}
+Given a group $G$ one can try to build all sequences of involutions that generate $G$ as a string C-group 
+of a given rank $n$. This can be done as follows:
+\begin{intrinsics}
+AllStringCReps(G,n) : GrpPerm , RngIntElt -> SeqEnum[SGGI]
+AllStringCReps(G,n) : GrpMat , RngIntElt -> SeqEnum[SGGI]
+\end{intrinsics}
+The user is warned that this can be a time (and memory) consuming computation when $G$ is a large group.
 
 %-----------------------------------------------------------------------------
 
