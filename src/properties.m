@@ -93,17 +93,6 @@ return __GetSGGI (G);
 end intrinsic;
 
 
-intrinsic Dual (H::SGGI) -> SGGI
-  {The dual of an SGGI.}
-  G := Group (H);
-  G := sub < G | Reverse ([ G.i : i in [1..Ngens (G)] ]) >;
-  J := StringGroupGeneratedByInvolutions (G);
-  J`DistGens := Reverse (H`DistGens);
-  J`SchlafliType := Reverse (H`SchlafliType);
-  J`AsGrp := sub < H`AsGrp | J`DistGens >;
-return J;
-end intrinsic;
-
 
      /*----- basic access funcions for SGGIs -----*/
 
@@ -240,55 +229,7 @@ intrinsic IsInnerIsomorphic (H::SGGI, J::SGGI) -> BoolElt, GrpElt
 return true, g;
 end intrinsic;
 
-/*
-   ***** obsolete attempt at isomorphism testing for SGGIs *****
-   ***** may revisit at some point, but direct way better  *****
 
-// compute action of Aut(G) (or conj action of G if AUTO = false) on involutions of G
-__ActionOnInvolutions := function (G : AUTO := true)
-  DOM := Involutions (G);
-  n := #DOM;
-  S := SymmetricGroup (n);
-  if AUTO then
-      A := AutomorphismGroup (G);
-      gens := [ S![ Position (DOM, DOM[i] @ (A.j)) : i in [1..n] ] : 
-                           j in [1..Ngens (A)] ];
-  else
-      gens := [ S![ Position (DOM, DOM[i] ^ (G.j)) : i in [1..n] ] : 
-                           j in [1..Ngens (G)] ];
-  end if;
-  // NOTE: can create homomorphism A -> ACT if we require conjugating element
-  ACT := sub < S | gens >;
-return ACT, DOM;
-end function;
-
-intrinsic IsIsomorphic (H::SGGI, J::SGGI : 
-                             AUTO := true,   // full autos acting or just inner
-                             ACTING_GROUP := false,   
-                             DOMAIN := []  
-                       ) -> BoolElt
-  {Decide whether two SGGIs are isomorphic.}
-
-  S := Generators (H);
-  T := Generators (J);
-  G := Group (H);
-
-  if DOMAIN eq [] then
-      assert Type (ACTING_GROUP) eq BoolElt;
-      ACTING_GROUP, DOMAIN := __ActionOnInvolutions (G : AUTO := AUTO);
-  end if;
-
-  require Type (ACTING_GROUP) eq GrpPerm : "acting group not a per group";
-
-  S := [ Position (DOMAIN, S[i]) : i in [1..#S] ];
-  T := [ Position (DOMAIN, T[i]) : i in [1..#T] ];
-
-  isit, _ := __IsTranslate (ACTING_GROUP, S, T);
-
-return isit;
-
-end intrinsic;
-*/
 
 
 

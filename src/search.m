@@ -139,7 +139,7 @@ return SGGIs;
 end function;
 
 
-intrinsic AllStringCReps (G::GrpPerm, r::RngIntElt :
+intrinsic AllStringCReps (G::GrpPerm, n::RngIntElt :
     ICReps := [ ],          // if non-empty, restrict to conjugates of this list
     SanityCheck := false,   // don't bother to verify the string C sequences
     IsoFilter := true       // only return distinct SGGIs distinct up to iso and duality
@@ -148,23 +148,24 @@ intrinsic AllStringCReps (G::GrpPerm, r::RngIntElt :
   { Find by brute force search all string C generating sequences in G
     up to isomorphism and duality. }
 
-   require r gt 2 : "rank of string C-group must be at least 3";
+   require n gt 2 : "rank of string C-group must be at least 3";
 
-return __ExhaustiveSearch (G, r : ICReps := ICReps , SanityCheck := SanityCheck, IsoFilter := IsoFilter);
+return __ExhaustiveSearch (G, n : ICReps := ICReps , SanityCheck := SanityCheck, IsoFilter := IsoFilter);
 
 end intrinsic;
 
 
-intrinsic AllStringCReps (G::GrpMat, r::RngIntElt :
+intrinsic AllStringCReps (G::GrpMat, n::RngIntElt :
     ICReps := [ ],    // if non-empty, restrict to conjugates of this list
     SanityCheck := false   // don't bother to verify the string C sequences
+    IsoFilter := true       // only return distinct SGGIs distinct up to iso and duality
                            ) -> SeqEnum
     
   { Find by brute force search all string C generating sequences in G.}
 
-   require r gt 2 : "rank of string C-group must be at least 3";
+   require n gt 2 : "rank of string C-group must be at least 3";
 
-return __ExhaustiveSearch (G, r : ICReps := ICReps , SanityCheck := SanityCheck);
+return __ExhaustiveSearch (G, n : ICReps := ICReps , SanityCheck := SanityCheck, IsoFilter := IsoFilter);
 
 end intrinsic;
 
