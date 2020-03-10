@@ -1,6 +1,7 @@
 {
   src
   {
+        global_variables.m
         properties.m
         standard.m
         classical.m

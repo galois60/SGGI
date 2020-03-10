@@ -58,21 +58,27 @@ __ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false, Iso
 
      /* if no involution class reps are specified, compute them all */
      if ICReps eq [ ] then
-         tt := Cputime ();
+              tt := Cputime ();
          classes := ConjugacyClasses (G);
+              vprint SGGI, 2 : "   [__ES] computed conjugacy classes of G in time", Cputime (tt);
          iclasses := [ c : c in classes | c[1] eq 2 ];
          ICReps := [ c[3] : c in iclasses ];
          /* remove central elements */
          ICReps := [ r : r in ICReps | not forall { v : v in [1..Ngens (G)] |
                                             (G.v, r) eq Identity (G) } ];
+     else
+              vprint SGGI, 2 : "   [__ES] conjugacy classes of G were already known";
      end if;
 
      assert forall { j : j in ICReps | j in G and Order (j) eq 2 };
      
      /* we list the union of conjugacy classes of involutions */
+              tt := Cputime ();
      INVS := &join [ Conjugates (G, r) : r in ICReps ];
+              vprint SGGI, 2 : "   [__ES] computed involution list in time", Cputime (tt);
      
      /* form all (conjugacy classes of) strings of length 3 */
+              tt := Cputime ();
      TRIPS := [ ];
      for a in [1..#ICReps] do
      
@@ -98,6 +104,7 @@ __ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false, Iso
          end for;
      
      end for;
+                  vprint SGGI, 2 : "   [__ES] computed", #TRIPS, "seed triples in time", Cputime (tt);
      
      TUPLES := TRIPS;
      
@@ -106,13 +113,16 @@ __ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false, Iso
          /* see if we can extend to string gps of higher rank */
          s := 3;     
          while (s lt r) do
+                   tt := Cputime ();
              TUPLES := __Extend_Rank (G, TUPLES, INVS);
+                   vprint SGGI, 2 : "   [__ES] extended s =",s,"to list of size", #TUPLES, "in time", Cputime (tt);
              s +:= 1;
          end while;
      
      end if;
      
      /* decide which of the TUPLES generate G and turn them into SGGIs */
+                   tt := Cputime ();
      SGGIs := [ ];
      for t in TUPLES do
          J := sub < G | t >;
@@ -133,6 +143,8 @@ __ExhaustiveSearch := function (G, r : ICReps := [ ] , SanityCheck := false, Iso
              end if;
          end if;
      end for;
+                   vprint SGGI, 2 : "   [__ES] final generation and IP check in time", Cputime (tt);
+                   vprint SGGI, 2 : "   [__ES] found", #SGGIs, "string C-group reps of rank", r;
 
 return SGGIs;
           
@@ -157,7 +169,7 @@ end intrinsic;
 
 intrinsic AllStringCReps (G::GrpMat, n::RngIntElt :
     ICReps := [ ],    // if non-empty, restrict to conjugates of this list
-    SanityCheck := false   // don't bother to verify the string C sequences
+    SanityCheck := false,   // don't bother to verify the string C sequences
     IsoFilter := true       // only return distinct SGGIs distinct up to iso and duality
                            ) -> SeqEnum
     
