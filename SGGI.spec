@@ -7,5 +7,6 @@
         classical.m
         involutions.m
         search.m
+        inflate.m
   }
 }

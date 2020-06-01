@@ -1,4 +1,17 @@
-// NEEDS WORK: MODIFY USING NEW NAMES AND INPUTS OF SGGI PROPERTIES
+intrinsic InvolutionReps (G::Grp) -> SeqEnum
+  { Compute representatives of the involution classes of the group G }
+     cl := ConjugacyClasses (G);
+     icl := [ c : c in cl | c[1] eq 2 ];
+return [ c[3] : c in icl ];
+end intrinsic;
+
+intrinsic Involutions (G::Grp) -> SeqEnum
+  { Compute all involutions of the group G }
+     reps := InvolutionReps (G);
+return &join [ Conjugates (G, r) : r in reps ];
+end intrinsic;
+
+
 
 /*
   This subroutine is designed for use in a parallel search.

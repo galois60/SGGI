@@ -77,9 +77,8 @@ return I, L, N, R;
 end function;
 
 
-n := 8;
+n := 7;
 G := SymmetricGroup (n);
-
 ALL := [ AllStringCReps (G, r) : r in [n-2..3 by -1] ];
 assert #ALL[1] eq 1;
 
