@@ -22,13 +22,8 @@ __IsSGGI := function (S)
   if exists { i : i in [1..n] | Order (S[i]) ne 2 } then
       return false;
   end if;
-  string:= forall { i : i in [1..n-2] |
+  return forall { i : i in [1..n-2] |
           forall { j : j in [i+2..n] | Order (S[i] * S[j]) eq 2 } };   
-  if string then   
-      return true;
-  else
-      return false;
-  end if;
 end function;
 
 
@@ -64,6 +59,35 @@ __HasIP := function (S)
   end if; 
 end function;
 
+// the string condition for chiral polytopes
+__HasStringPropertyPlus := function (S)
+  return forall { i : i in [1..#S-1] | 
+            forall { j : j in [i+1..#S] | 
+              Order (&* [ S[k] : k in [i..j] ]) eq 2
+                   }
+                  };
+end function;
+
+__IsCPlusSequence := function (S)
+  n := #S;
+  if not __HasStringPropertyPlus (S) then
+    return false;
+  end if;
+  G := Generic (Parent (S[1]));
+  if n lt 2 then 
+    return true;
+  else   
+    L := [ S[i] : i in [1..n-1] ];
+    if $$ (L) then 
+      LEFT := sub < G | L >;
+      return forall { i : i in [1..n-1] |
+        LEFT meet sub<G|[S[j] : j in [i..n]]> eq sub<G|[S[j] : j in [i..n-1]]>
+                };
+    else
+      return false;
+    end if;
+  end if; 
+end function;
 
      /*----- basic constructors for SGGIs -----*/
 
@@ -153,6 +177,25 @@ intrinsic IsStringCGroup (G::Grp) -> BoolElt
   H := StringGroupGeneratedByInvolutions (G);
 return IsStringCGroup (H);
 end intrinsic;
+
+
+intrinsic IsCPlusGroup (G::GrpMat) -> BoolElt
+  {Test whether G is a C+ group on its given generator list.}
+  S := [ G.i : i in [1..Ngens (G)] ];
+  if not __IsCPlusSequence (S) then 
+    return false; 
+  end if;
+end intrinsic;
+
+
+intrinsic IsCPlusGroup (G::GrpPerm) -> BoolElt
+  {Test whether G is a C+ group on its given generator list.}
+  S := [ G.i : i in [1..Ngens (G)] ];
+  if not __IsCPlusSequence (S) then 
+    return false; 
+  end if;
+end intrinsic;
+
 
 
      /*----- comparison functions for SGGIs -----*/
