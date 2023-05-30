@@ -1,4 +1,4 @@
-175,0
+177,0
 S,PerpSpace,Compute the perp-space of U relative to the bilinear form F,0,2,0,0,0,0,0,0,0,159,,0,0,-34,,159,-38,-38,-38,-38,-38
 S,PreservesBilinearForm,Check if g is an isometry of the bilinear form F,0,2,0,0,0,0,0,0,0,-34,,0,0,180,,36,-38,-38,-38,-38,-38
 S,PreservesBilinearForm,Check if G is a group of isometries of the bilinear form F,0,2,0,0,0,0,0,0,0,-34,,0,0,178,,36,-38,-38,-38,-38,-38

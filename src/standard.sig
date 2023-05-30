@@ -1,4 +1,4 @@
-175,0
+177,0
 S,CoxeterMatrix,The Coxeter matrix for a reflection group from its Schlafli type,1,0,1,82,0,148,1,0,0,0,0,0,0,0,82,,-34,-38,-38,-38,-38,-38
 S,Simplex,The n-simplex as an SGGI,0,1,0,0,0,0,0,0,0,148,,SGGI,-38,-38,-38,-38,-38
 S,Dual,The dual of an SGGI,0,1,0,0,0,0,0,0,0,SGGI,,SGGI,-38,-38,-38,-38,-38

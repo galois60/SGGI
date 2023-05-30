@@ -1,4 +1,4 @@
-175,0
+177,0
 S,InvolutionClassReps,Return involution class representatives of G along with the class sizes,0,1,0,0,0,0,0,0,0,-27,,82,82,-38,-38,-38,-38
 S,Involutions,"Given a group, return all of its involutions",0,1,0,0,0,0,0,0,0,-27,,82,-38,-38,-38,-38,-38
 S,IsDihedral,"Given a group, decide if it is dihedral",0,1,0,0,0,0,0,0,0,-27,,82,-38,-38,-38,-38,-38
