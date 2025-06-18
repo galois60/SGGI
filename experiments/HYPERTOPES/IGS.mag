@@ -1,0 +1,129 @@
+function IsNew(G,S,t);
+  GT := sub<G|t>;
+  orders:={*Order(t[i]) : i in [1..#t]*};
+  for x in S do
+    ordersX:={*Order(x[i]) : i in [1..#x]*};
+    if orders eq ordersX then
+      ok, phi := IsConjugate(G,GT,sub<G|x>);
+      if ok then
+        s:=Sym(#t);
+        for y in s do
+          if IsHomomorphism(GT, GT, [x[i^y] : i in [1..#x]]^(phi^-1)) then
+            return false;
+          end if;
+        end for;
+      end if;
+    end if;
+  end for;
+  return true;
+end function;
+
+function IsIGS(G,S)
+  S := Set(S);
+  for x in S do
+    H:=sub<G|S diff {x}>;
+    if x in H then 
+      return false;
+    end if;
+   end for;
+  return true;
+end function;
+
+function generate(G);
+  c := ConjugacyClasses(G);
+  gs := [];
+  igs := [];
+  for i := 2 to #c do
+      Append(~gs,[c[i][3]]);
+  end for;
+  while #gs ne 0 do
+    print "Extending", #gs, "IGS to rank",#(gs[1])+1;
+    gsExtended := [];
+    for i := 1 to #gs do
+      Z := gs[i];
+      S := sub<G|Z>;
+      for x in G do
+        if not(x in S) then
+          if IsIGS(G,Z cat [x]) then
+            if IsNew(G,gsExtended, Z cat [x]) then
+              Append(~gsExtended, Z cat [x]);
+            end if;
+          end if;
+        end if;
+      end for;
+    end for;
+    // now checking which generate and save them
+    gs := [];
+    for x in gsExtended do
+      if #sub<G|x> eq #G then
+        Append(~igs, x);
+      else
+        Append(~gs, x);
+      end if;
+    end for;
+  end while;
+  return igs;
+end function;
+
+procedure saveGroup(G, filename);
+  SetOutputFile(filename:Overwrite:=true);
+  print "G := sub<Sym(",Degree(G),")|";
+  for i := 1 to #Generators(G) -1 do
+    print ElementToSequence(G.i),",";
+  end for;
+  print ElementToSequence(G.#Generators(G)),">;";
+  UnsetOutputFile();
+end procedure;
+
+procedure saveIGS(G, igs, filename);
+  ord := #igs[1];
+  gens := "gens" cat IntegerToString(ord);
+  SetOutputFile(filename : Overwrite:=false);
+  print gens,":= [";
+  for i := 1 to #igs do
+    if i ne 1 then print ","; end if;
+    gens := igs[i];
+    for j := 1 to #gens do
+      if j eq 1 then
+        print "[G|";
+      else 
+        print ",";
+      end if;
+      print ElementToSequence(gens[j]);
+    end for;
+    print "]";
+  end for;
+  print "];";
+  UnsetOutputFile();
+end procedure;
+
+/*
+degStart := 6;
+degEnd := 30;
+for d := degStart to degEnd do
+  for di:= 1 to NumberOfPrimitiveGroups(d)-2 do
+    g:=PrimitiveGroupSims(d,di);
+    print "Analysing PrimitiveGroupSims(",d,",",di,") ...";
+    filename := "Primitive" cat IntegerToString(d) cat "-" cat IntegerToString(di) cat ".gens";
+    saveGroup(g,filename);
+    AutG:=g;
+    G:=g;
+    igs := generate(G);
+    if #igs ne 0 then
+      saveIGS(G, igs, filename);
+    end if;
+  end for;
+end for;
+*/
+
+MyIGS := function (G)
+  n := Ngens (G);
+  isit := true;
+  for i in [1..n] do 
+    if G.i in sub < G | [ G.j : j in Remove([1..n], i) ] > then
+      isit := false;
+      "i=", i;
+    end if;
+  end for;
+return isit;
+end function;
