@@ -127,3 +127,188 @@ MyIGS := function (G)
   end for;
 return isit;
 end function;
+
+/* -------- my code in progress for IGS search ------- */
+
+isEquivalent := function (X, Y)
+     basics := false;
+     if Ngens (X) eq Ngens (Y) then 
+       m := {* Order (X.j) : j in [1..Ngens (X)] *};
+       if m eq {* Order (Y.j) : j in [1..Ngens (Y)] *} then
+         if #X eq #Y then 
+           basics := true;
+         end if;
+       end if;
+     end if;
+     if basics then 
+          // try all homomorphisms between compatible tuples
+          P := DirectProduct ([ SymmetricGroup (n) : n in Multiplicities (m) ]);
+          P := [ g : g in P ];
+          genX := [ ]; genY := [ ];
+          for ord in Set (m) do
+               genX cat:= [ X.j : j in [1..Ngens (X)] | Order (X.j) eq ord ];
+               genY cat:= [ Y.j : j in [1..Ngens (Y)] | Order (Y.j) eq ord ];
+          end for;
+          iso := false;
+          i := 0;
+          XX := sub < Generic (X) | genX >;
+          YY := sub < Generic (Y) | genY >;
+          while (i lt #P) and (not iso) do 
+               i +:= 1;
+               s := P[i];
+// NEED CONJUGACY HERE
+               iso := IsHomomorphism (XX, YY, [ genY[j^s] : j in [1..#genY] ]);
+          end while;
+          if iso then 
+               return true;
+          else 
+               return false;
+          end if;
+     else 
+          return false;
+     end if;
+end function;
+
+// procedure to replace the pointers in F with pointers to 
+// orbit reps under the conjugation action of H
+procedure orbitReps (~F, H, ELEMENTS) // '~' is optional, but helps readability for potential output
+    build := [ ];
+    reps := [ ];
+    while #build lt #F do
+         assert exists (p){ q : q in F | not q in build };
+         Append (~reps, p);
+         x := ELEMENTS[p];
+         Cx := Conjugates (H, x);
+         posCx := [ Position (ELEMENTS, y) : y in Cx ];
+         build cat:= posCx;
+    end while;
+    F := reps;
+end procedure;
+
+isIndep := function (Y)
+return forall { j : j in [1..Ngens (Y)] | 
+                #sub<Y|[ Y.k : k in [1..Ngens (Y)] | k ne j ]> lt #Y };
+end function;
+
+
+maxIGS := function (G : Cardinality := 0)
+
+     // list the elements of G once and for all
+     // hopefully this is the most time consuming step
+tt := Cputime ();
+     ELTS := [ g : g in G ];
+     N := #ELTS;
+"time to list elements of G:", Cputime (tt);
+
+     // set up working list WL
+     // terms in WL are pairs [X, E], where
+     // X is a subgroup of G with independent generators,
+     // E is the list of extendable elements; pointers to ELTS 
+tt := Cputime ();
+     cl := ConjugacyClasses (G);
+     WL := [ ];
+     for i in [2..#cl] do 
+          x := cl[i][3];
+          X := sub < G | x >;
+          // get elements not in X
+          E := [ p : p in [1..N] | not ELTS[p] in X ];
+          // refine this list to cut down the search
+          C := Centralizer (G, X);
+          orbitReps (~E, C, ELTS);
+          Append (~WL, <X, E>);
+     end for;
+"time to initialize:", Cputime (tt);
+ 
+     // set up the maximum IGS so far
+     if exists(T){ S : S in WL | #S[1] eq N } then 
+          max_so_far := [ T[1].j : j in [1..Ngens (T[1])] ];
+     else 
+          max_so_far := [ ];
+     end if;
+
+     STOP := false;
+
+     // main loop 
+     i := 0;
+     while (not STOP) do
+
+          i +:= 1;
+          "there are", #WL, "items on the working list at the start of iteration", i;
+
+          // remove redundancies
+          old_WL := WL;
+          WL := [ old_WL[1]] ;
+          for j in [2..#old_WL] do
+               new := forall { k : k in [1..#WL] | 
+                       not isEquivalent (WL[k][1], old_WL[j][1]) };
+               if new then 
+                    Append (~WL, old_WL[j]);
+               end if;
+          end for;
+          "after removing redundancies, there are", #WL, "items";
+          "--------";
+
+          new_WL := [ ];
+    
+          for i in [1..#WL] do
+
+               // loop through the pairs in the working list
+               X := WL[i][1];
+               E := WL[i][2];
+
+               // process this pair; three options:
+               // (1) the new generator destroys independence. STOP
+               // (2) the new generator gives an IGS for G. STOP
+               // (3) the new generator gives an IGS for a proper subgroup. ADD
+               for p in E do
+                    y := ELTS[p];
+                    Y := sub < G | [ X.j : j in [1..Ngens (X)] ] cat [y] >;
+                    if isIndep (Y) then
+                         if #Y eq N then   // update max_so_far
+                              if Ngens (Y) gt #max_so_far then 
+                                   max_so_far := [ Y.j : j in [1..Ngens (Y)] ];
+                              end if;
+                         else
+                              EY := [ p : p in [1..N] | not ELTS[p] in Y ];
+                              // refine this list to cut down the search
+                              CY := Centralizer (G, Y);
+                              orbitReps (~EY, CY, ELTS);
+                              Append (~new_WL, <Y, EY>);
+                         end if;
+                    end if;
+                end for;
+
+          end for;
+
+          if #new_WL eq 0 then 
+               STOP := true;
+          else 
+               WL := new_WL;
+          end if;
+
+     end while;
+
+return max_so_far;
+end function;
+
+
+// small example to test pieces of the code
+
+/*
+G := SymmetricGroup (6);
+
+ttt := Cputime ();
+S1 := maxIGS (G);
+"time for PB:", Cputime (ttt);
+
+ttt := Cputime ();
+S2 := generate (G);
+"time for DL:", Cputime (ttt);
+*/
+
+G := SymmetricGroup (6);
+time S := maxIGS (G);
+
+
+
+

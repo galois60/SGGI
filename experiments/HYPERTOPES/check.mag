@@ -141,6 +141,20 @@ for T in trees do
      [#G134, #G135, #G13, #(G134 meet G135)];
 end for;
 
+MyCompLength := function (G);
+return #CompositionSeries (G) - 1;
+end function;
+
+// check primitive groups
+for n in [4..24] do
+"processing primitive groups of degree", n;
+"floor (n/2) - 1 =", Floor (n/2) - 1;
+"composition lengths:", [ MyCompLength (G) : G in PrimitiveGroups (n) ];
+"-------";
+end for;
+
+
+
 
 
 
