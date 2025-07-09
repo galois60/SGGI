@@ -8,5 +8,6 @@
         involutions.m
         search.m
         inflate.m
+        IGS.mag
   }
 }
