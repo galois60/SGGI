@@ -15,17 +15,21 @@ Running Magma from the main folder, type
 
 to install all available intrinsic functions.
 
-src/ &nbsp&nbsp
+<kbd>src/</kbd> &emsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	Source Code for package.
 
-doc/
+<kbd>doc/</kbd> &emsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	Package documentation.
 
-examples/
+<kbd>examples/</kbd> &emsp; &nbsp; &nbsp; &nbsp;
 	Examples of package use.
 
-experiments/
+<kbd>experiments/</kbd> &emsp;
 	Experiments conducted on specific groups using the SGGI code.
 
-dev/
+<kbd>dev/</kbd> &emsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     Code that is in development.
+
+
+
+
