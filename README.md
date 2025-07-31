@@ -9,6 +9,12 @@ Contents:
 
 SGGI.spec  — magma specification file.
 
+Running Magma from the main folder, type 
+
+> AttachSpec ("SGGI.spec");
+
+to install all available intrinsic functions.
+
 src/
 	Source Code for package.
 doc/
@@ -17,3 +23,5 @@ examples/
 	Examples of package use.
 experiments/
 	Experiments conducted on specific groups using the SGGI code.
+dev/
+    Code that is in development.

@@ -1,13 +1,12 @@
 {
   src
   {
-        global_variables.m
-        properties.m
-        standard.m
-        classical.m
-        involutions.m
-        search.m
-        inflate.m
-        IGS.mag
+        GLOBAL.mag
+        properties.mag
+        standard.mag 
+        classical.mag
+        involutions.mag
+        search.mag
+        MGS.mag
   }
 }
