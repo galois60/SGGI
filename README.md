@@ -21,10 +21,10 @@ to install all available intrinsic functions.
 <kbd>doc/</kbd> &emsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	Package documentation.
 
-<kbd>examples/</kbd> &emsp; &nbsp; &nbsp; &nbsp;
+<kbd>examples/</kbd> &emsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	Examples of package use.
 
-<kbd>experiments/</kbd> &emsp;
+<kbd>experiments/</kbd> &emsp; &nbsp; &nbsp; &nbsp;
 	Experiments conducted on specific groups using the SGGI code.
 
 <kbd>dev/</kbd> &emsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
