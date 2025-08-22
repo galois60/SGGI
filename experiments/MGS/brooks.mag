@@ -1,0 +1,167 @@
+// the code in this file mimics the analysis of Thomas Brooks for the small Mathieu groups
+
+__IsEquivalent := function (G, X, Y : FULL := true)
+     if IsConjugate (G, sub < G | X >, sub < G | Y >) then
+          if FULL then   // do full test on tuples 
+               S := SymmetricGroup (#X);
+               A := sub < G | X >;
+               B := sub < G | Y >;
+               if exists { s : s in S | IsHomomorphism (A, B, [ Y[i^s] : i in [1..#X] ]) } then 
+                    return true;
+               else 
+                    return false;
+               end if;
+          else
+               return true;
+          end if;
+     else 
+          return false;
+     end if;
+end function;
+
+GetDihedrals := function (G)
+     classes := ConjugacyClasses (G);
+     reps := [ c[3] : c in classes | Order (c[3]) ne 1 ];
+     dihedrals := [ ];
+     for r in reps do
+          R := sub < G | r >;
+          N := Normalizer (G, R);
+          clN := ConjugacyClasses (N);
+          clN2 := [ c[3] : c in clN | 
+                           (Order (c[3]) eq 2) and (c[3]*r*c[3] eq r^-1) and (c[3] ne r) ];
+          for t in clN2 do
+               // get involution generators
+               assert exists(u) { s : s in sub<G|r,t> | Order(s) eq 2 and s*t eq r };
+               X := [ t , u ];
+               if forall { Y : Y in dihedrals | not __IsEquivalent (G, X, Y) } then
+                    Append (~dihedrals, [ t , u ]);
+               end if;
+          end for;
+     end for;
+return dihedrals;
+end function;
+
+// procedure to replace the pointers in F with pointers to 
+// orbit reps under the conjugation action of H
+procedure orbitReps (~F, H, ELEMENTS) // '~' is optional, but helps readability for potential output
+    build := [ ];
+    reps := [ ];
+    while #build lt #F do
+         assert exists (p){ q : q in F | not q in build };
+         Append (~reps, p);
+         x := ELEMENTS[p];
+         Cx := Conjugates (H, x);
+         posCx := [ Position (ELEMENTS, y) : y in Cx ];
+         build cat:= posCx;
+    end while;
+    F := reps;
+end procedure;
+
+
+// try to extend the tuple X
+__Extend := function (G, X, J, LL : REFINE := true)
+     extX := [ ];
+     POS := [1..#J];
+     if REFINE then 
+          CX := Centralizer (G, sub < G | X >);
+          orbitReps (~POS, CX, J);
+     end if;
+     for k in POS do
+          Y := X cat [ J[k] ];
+          // check that Y is irredundant
+          if IsMGS (sub< G | Y>) then
+               // see if we have it already
+               if forall { Z : Z in LL cat extX | not __IsEquivalent (G, Y, Z) } then
+                    Append (~extX, Y);
+               end if;
+          end if;
+     end for;
+return extX;
+end function;
+
+SearchForIrredundantSets := function (G)
+     L := GetDihedrals (G);
+     I := Involutions (G);
+     done := false;
+     while not done do
+          "trying to extend", #L, "tuples of size", #L[1];
+          newL := [ ];
+          for X in L do
+               J := [ i : i in I | not i in sub < G | X > ];
+               newL cat:= __Extend (G, X, J, newL);
+          end for;
+          if #newL eq 0 then 
+               done := true;
+          else 
+               L := newL;
+          end if;
+     end while;
+return L;
+end function;
+
+
+
+
+// The following function to get dihedral subgroups 
+// is generally slower than the function we are using.
+
+// GetDihedrals2 := function (G)
+//      classes := ConjugacyClasses (G);
+//      Ireps := [ c[3] : c in classes | Order (c[3]) eq 2 ];
+//      I := Involutions (G);
+//      dihedrals := [ ];
+//      for a in Ireps do
+//           Ca := Centraliser (G, a);
+//           Ja := [ b : b in I | a ne b ];
+//           Na := [1..#Ja];
+//           orbitReps (~Na, Ca, Ja);
+//           for j in Na do 
+//                b := Ja[j];
+//                if a ne b then
+//                     D := sub < G | a , b >;
+//                     if forall { X : X in dihedrals | not IsConjugate (G, X, D) } then 
+//                          Append (~dihedrals, D);
+//                     end if;
+//                end if;
+//           end for;
+//      end for;
+// return dihedrals;
+// end function;
+
+// This is using the Tarski idea
+// G is a group
+// X is an irredundant set of involutions of G
+// J is a set of involutions of G
+// __Extend := function (G, X, J : REFINE := true)
+//      extX := [ ];
+//      POS := [1..#J];
+//      if REFINE then 
+//           CX := Centralizer (G, sub < G | X >);
+//           orbitReps (~POS, CX, J);
+//      end if;
+//      for i in [1..#X] do 
+//           // see if we can extend by splitting X[i]
+//           POSi := [ j : j in POS | (X[i], J[j]) eq Identity (G) ];
+//           for k in POSi do
+//                // see if the involutions commuting with X[i] can be used to split X[i]
+//                Y := Remove (X, i) cat [ J[k] , J[k] * X[i] ];
+//                if IsMGS (sub < G | Y >) then 
+//                     Append (~extX, Y);
+//                end if;
+//           end for;
+//      end for;
+// return extX;  
+// end function;
+
+// G is a group
+// L is a list of irredundant involution tuples of G
+// I is the set of all involutions in G
+// Extend := function (G, L, I)
+//      "attempting to extend sets of size", #L[1];
+//      LL := [ ];
+//      for X in L do 
+//           J := [ i : i in I | not i in X ];
+//           LL cat:=  __Extend (G, X, J);
+//      end for;
+// return LL;
+// end function;

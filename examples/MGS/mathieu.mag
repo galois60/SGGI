@@ -1,0 +1,7 @@
+/* experiments to pin down independent gen set sizes for Mathieu groups */
+M11 := PrimitiveGroup (11, 6);  PrimitiveGroupDescription (11, 6);
+M12 := PrimitiveGroup (12, 4);  PrimitiveGroupDescription (12, 4);
+M22 := PrimitiveGroup (22, 1);  PrimitiveGroupDescription (22, 1);
+M22_2 := PrimitiveGroup (22, 2);  PrimitiveGroupDescription (22, 2);
+M23 := PrimitiveGroup (23, 5);  PrimitiveGroupDescription (23, 5);
+M24 := PrimitiveGroup (24, 3);  PrimitiveGroupDescription (24, 3);

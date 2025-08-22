@@ -1,29 +1,10 @@
 /*
    Some functions for exploring max IGS of primitive groups
+
+   NOTE: Colva and Scott claim better bounds for primitive groups,
+   so we now need to be more stringent in looking for exceptions.
 */
 
-// Find the maximum length of a subgroup chain in a group
-ChainLength := function (G)
-     // if the lattice is very large, this first step will be a problem
-     L := SubgroupLattice (G);
-     // the last group listed in the lattice should be G,
-     // and the first group should be the identity
-     assert (L[#L] eq G) and (L[1] eq sub<G|Identity(G)>);
-     depths := [ 0 : i in [1..#L] ];
-     rem := {1..#L};
-     while #rem gt 0 do
-          k := Max (rem);
-          Exclude (~rem, k);
-          M := MaximalSubgroups (L!k);
-          for m in M do 
-               mi := Integers ()!m;
-               depths[mi] := Max (1 + depths[k], depths[mi]);
-          end for;
-     end while;
-     // the identity subgroup must be at the end of any longest chain
-     assert forall { i : i in [2..#L] | depths[1] ge depths[i] };
-return depths[1];
-end function;
 
 MyFactors := function (m)
      facs := Factorization (m);
@@ -35,7 +16,7 @@ return mfacs;
 end function;
 
 // this is an adaptation of Dimitri's recursive function that
-// tests if <G> subgroup chain of length at least <len>
+// tests if <G> has a subgroup chain of length at least <len>
 HasSubgroupChainOfLength := function (G, len)
      if len eq 0 then 
           return true;

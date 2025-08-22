@@ -1,0 +1,132 @@
+/*
+   Functions to find minimal generating sets (MGS) within a group.
+*/
+
+// temporary function to test whether K normalizes G in situations 
+// where G is not a subgroup of K, the groups have a common parent.
+MyNormalizes := function (K, G : LIMIT := 50) 
+     A := Generic (K);
+     assert Generic (G) eq A;
+     norm := true;
+     count := 0;
+     while (norm) and (count lt LIMIT) do
+          count +:= 1;
+          k := Random (K);
+          g := Random (G);
+          norm and:= g^k in G;
+     end while;
+     if norm then return true, _; else return false, A!(g^k); end if;
+end function;
+
+// for some reason MyGenerators(-) is Magma does not always do what you think it should ...
+procedure MyReduceGenerators (~G)
+     gens := [ G.i : i in [1..Ngens (G)] ];
+     while exists (i){ j : j in [1..#gens] | 
+                           sub < G | [ gens[k] : k in [1..#gens] | k ne j ] > eq G 
+                     } do
+          Remove (~gens, i);
+          G := sub < G | gens >;
+     end while;
+end procedure;
+
+// given H , K with a common parent A, construct the smallest 
+// subgroup of A containing H normalized by K.
+MyNormalClosure := function (K, H : LIMIT := 50)
+     A := Generic (K);
+     assert Generic (H) eq A;
+     gens := [ A!(H.i) : i in [1..Ngens(H)] ];
+     G := sub < A | gens >;
+     count := 0;
+     closed := false;
+     while (count lt LIMIT) and (not closed)  do
+          count +:= 1;
+          closed, y := MyNormalizes (K, G);
+          if (not closed) then 
+               Append (~gens, y);
+               G := sub < Generic (G) | gens >;
+          end if;
+     end while;
+     MyReduceGenerators (~G);
+return G;
+end function;
+
+
+intrinsic IsMGS (G::GrpPerm) -> BoolElt , SeqEnum[GrpPermElt]
+  { Is the given generating set X of a group G a minimal generating set?
+    Also returns a subset of X that is a MGS for G. }
+     H := G;
+     MyReduceGenerators (~H);
+     isit := (Ngens (G) eq Ngens (H));
+return isit, [ H.i : i in [1..Ngens (H)] ];     
+end intrinsic;
+
+
+intrinsic IsMGS (G::GrpPerm, K::GrpPerm) -> BoolElt , SeqEnum[GrpPermElt] 
+  { Is the given generating X set of a group G normalized by K  a minimal K-generating set? 
+    Also returns subset of X that is K-MGS for G. Note: this subset may not generate G. }
+  require MyNormalizes (K, G) : "K must normalize G";
+       H := G;
+       while exists (i){ j : j in [1..Ngens (H)] | 
+          MyNormalClosure (K, sub< H | [ H.k : k in [1..Ngens (H)] | k ne j ] >) eq G 
+                       } do
+             H := sub < H | [ H.k : k in [1..Ngens (H)] | k ne i ] >;
+       end while;
+return (Ngens (H) eq Ngens (G)), [ H.i : i in [1..Ngens (H)] ];
+end intrinsic;
+
+
+MyFactors := function (m)
+     facs := Factorization (m);
+     mfacs := [ ];
+     for pair in facs do
+          mfacs cat:= [ pair[1] : i in [1..pair[2]] ];
+     end for;
+return mfacs;
+end function;
+
+// this is an adaptation of Dimitri's recursive function that
+// tests if <G> subgroup chain of length at least <len>
+HasSubgroupChainOfLength := function (G, len)
+     if len eq 0 then 
+          return true;
+     end if;
+     maxes := MaximalSubgroups (G);
+     ok := false;
+     j := 1;
+     while (not ok) and (j le #maxes) do
+          if (#MyFactors (#maxes[j]`subgroup) ge (len - 1)) then
+               ok := $$ (maxes[j]`subgroup, len - 1);
+          end if;
+          j +:= 1;
+     end while;
+     return ok;
+end function;
+
+// use Dimitri's recursive test to find the actual chain length of a finite group G
+intrinsic MaxLengthSubgroupChain (G::Grp) -> RngIntElt
+  { Length of a longest subgroup chain in G. }
+
+     if #G eq 1 then 
+          return 0;
+     end if;
+
+     LOWER := 1;
+     UPPER := 1 + Floor (Log (2, #G));
+
+     // carry out binary search 
+     while (1 + LOWER) lt UPPER do 
+
+          MID := (LOWER + UPPER) div 2;
+
+          if HasSubgroupChainOfLength (G, MID) then
+               LOWER := MID;
+          else 
+               UPPER := MID;
+          end if;
+
+     end while;
+
+return LOWER;
+
+end intrinsic;
+

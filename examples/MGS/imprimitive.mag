@@ -1,0 +1,79 @@
+/* 
+  Functions to build imprimitive groups that act transitively 
+  on blocks and have kernels of various prescribed kinds.
+*/
+
+// inflate g to a permutation moving blocks of size a
+__Inflate := function (g, a)
+     b := Degree (Parent (g));
+     L := Eltseq (g);
+     M := [ ];
+     for l in L do 
+          M cat:= [ (l-1)*a + j : j in [1..a] ];
+     end for;
+return SymmetricGroup (b * a)!M;
+end function;
+
+// create an a-cycle on the i-th block of b blocks
+__Cycle := function (b, a, i)
+     assert i le b;
+     M := [ j : j in [1..b * a] ];
+     for k in [1..a-1] do
+          M[(i - 1) * a + k] := (i - 1) * a + k + 1;
+          M[i * a] := (i - 1) * a + 1;
+     end for;
+return SymmetricGroup (a*b)!M;
+end function;
+
+// make B act imprimitively on blocks of size a with kernel Cyc(a)^b
+// actually, this is just the wreath product Cyc(a) wr B
+FullCyclic := function (B, a)
+     b := Degree (B);
+     K_gens := [ __Cycle (b, a, i) : i in [1..b] ];
+     B_gens := [ __Inflate (B.i, a) : i in [1..Ngens (B)] ];
+return sub < SymmetricGroup (a * b) | K_gens , B_gens >;
+end function;
+
+// make B act on blocks of size 3 with kernel acting as Sym(3) on each factor
+// that is, make sure that the kernel is an honest subdirect product of Sym(3)^b
+ColvasExample := function (B)
+     G := FullCyclic (B, 3);
+     k := Generic (G)!(1, 2); 
+     for i in [2..Degree (B)] do
+          k *:= Generic (G)!((i-1)*3+1, (i-1)*3+2);
+     end for;
+return sub < Generic (G) | G , k >;
+end function;
+
+
+// working through the mechanics of the proof to get hints as to where we can improve
+Lemma_2_14 := function (G)
+
+     assert not IsPrimitive (G);
+
+     // set up basic data
+     blocks := MinimalPartition (G);
+     pi, B, K := BlocksAction (G, blocks);
+     orbits := Orbits (K);   // this is <blocks> packaged differently ...
+     PI_maps := [ OrbitAction (K, O) : O in orbits ];   // projections onto Ki
+     XB := PruneToMGS ([ B.i : i in [1..Ngens (B)] ], sub < Generic (B) | [ ] >);
+     H := sub < G | [ x @@ pi : x in XB ] >;
+
+// The PruneToMGS function no longer exists ... rewrite the code below.
+
+     // select from K enough generators to minimally generate K_1
+     pi1 := PI_maps[1];
+     K1 := Image (pi1);
+     XK1 := PruneToMGS ([ K1.i : i in [1..Ngens (K1)] ], sub < K1 | [ ] >);
+     XK := [ XK1[i] @@ pi1 : i in [1..#XK1] ];
+     J := sub < G | H , XK >;
+
+     // at the moment this function is just testing whether this is already enough
+     if #J lt #G then "*** ALERT : J < G ***"; end if;
+
+     // Colva says she has various instances where it is not enough, but 
+     // still not close to adding one additional generator for each projection.
+
+return J;
+
+end function;

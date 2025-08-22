@@ -1,12 +1,11 @@
 {
   src
   {
-        GLOBAL.mag
-        properties.mag
-        standard.mag 
-        classical.mag
-        involutions.mag
-        search.mag
-        MGS.mag
+        POLYTOPES/properties.mag
+        POLYTOPES/standard.mag 
+        POLYTOPES/classical.mag
+        POLYTOPES/involutions.mag
+        POLYTOPES/search.mag
+        MGS/util.mag
   }
 }
