@@ -3,10 +3,13 @@
 __IsEquivalent := function (G, X, Y : FULL := true)
      if IsConjugate (G, sub < G | X >, sub < G | Y >) then
           if FULL then   // do full test on tuples 
-               S := SymmetricGroup (#X);
-               A := sub < G | X >;
-               B := sub < G | Y >;
-               if exists { s : s in S | IsHomomorphism (A, B, [ Y[i^s] : i in [1..#X] ]) } then 
+               if {* Order (x1 * x2) : x1 in X , x2 in X *} eq
+                  {* Order (y1 * y2) : y1 in Y , y2 in Y *} then
+            //    S := SymmetricGroup (#X);
+            //    A := sub < G | X >;
+            //    B := sub < G | Y >;
+            //    if exists { s : s in S | IsHomomorphism (A, B, [ Y[i^s] : i in [1..#X] ]) } then 
+            //         return true;
                     return true;
                else 
                     return false;
@@ -79,17 +82,37 @@ __Extend := function (G, X, J, LL : REFINE := true)
 return extX;
 end function;
 
-SearchForIrredundantSets := function (G)
+// can import this: it is in src/MGS/util.mag
+MyFactors := function (m)
+     facs := Factorization (m);
+     mfacs := [ ];
+     for pair in facs do
+          mfacs cat:= [ pair[1] : i in [1..pair[2]] ];
+     end for;
+return mfacs;
+end function;
+
+// the k parameter is to signal that we are not interested in l-tuples for l < k
+SearchForIrredundantSets := function (G, k)
+tt := Cputime ();
      L := GetDihedrals (G);
+"   [SFIS] found dihedrals in time", Cputime (tt);
+tt := Cputime ();
      I := Involutions (G);
+"   [SFIS] got involutions in time", Cputime (tt);
      done := false;
      while not done do
-          "trying to extend", #L, "tuples of size", #L[1];
+          "   [SFIS] trying to extend", #L, "tuples of size", #L[1], "...";
           newL := [ ];
+          tt := Cputime ();
           for X in L do
+               // if there is no room to extend X in G do not bother trying 
                J := [ i : i in I | not i in sub < G | X > ];
                newL cat:= __Extend (G, X, J, newL);
           end for;
+          "   [SFIS] ... finished in time", Cputime (tt);
+          // remove those that are too big
+          newL := [ X : X in newL | #MyFactors (#G div #sub<G|X>) ge (k-#X) ];
           if #newL eq 0 then 
                done := true;
           else 
