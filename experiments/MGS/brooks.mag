@@ -61,27 +61,6 @@ procedure orbitReps (~F, H, ELEMENTS) // '~' is optional, but helps readability 
 end procedure;
 
 
-// try to extend the tuple X
-__Extend := function (G, X, J, LL : REFINE := true)
-     extX := [ ];
-     POS := [1..#J];
-     if REFINE then 
-          CX := Centralizer (G, sub < G | X >);
-          orbitReps (~POS, CX, J);
-     end if;
-     for k in POS do
-          Y := X cat [ J[k] ];
-          // check that Y is irredundant
-          if IsMGS (sub< G | Y>) then
-               // see if we have it already
-               if forall { Z : Z in LL cat extX | not __IsEquivalent (G, Y, Z) } then
-                    Append (~extX, Y);
-               end if;
-          end if;
-     end for;
-return extX;
-end function;
-
 // can import this: it is in src/MGS/util.mag
 MyFactors := function (m)
      facs := Factorization (m);
@@ -92,27 +71,58 @@ MyFactors := function (m)
 return mfacs;
 end function;
 
+// is the number of prime factors in |G| / |<X>| at least k - |X|
+__CheckOrder := function (G, X, k)
+      H := sub < G | X >;
+      ordH := Order (H);
+      Verify (H);
+      return #MyFactors (Order (G) div Order (H)) ge (k - #X);
+end function;
+
+
+// try to extend the tuple X
+__Extend := function (G, X, J, LL, k : REFINE := true)
+     extX := [ ];
+     POS := [1..#J];
+     HX := sub < G | X >;
+     if REFINE then 
+          CX := Centralizer (G, sub < G | X >);
+          orbitReps (~POS, CX, J);
+     end if;
+     // get rid of the elements that do not give enough room for growth
+     POS := [ l : l in POS | __CheckOrder (G, X cat [ J[l] ], k) ];
+     for l in POS do
+          Y := X cat [ J[l] ];
+          // check that Y is irredundant and <Y> is small enough
+          if IsMGS (sub < G | Y >) then 
+               // see if we have it already
+               if forall { Z : Z in LL cat extX | not __IsEquivalent (G, Y, Z) } then
+                    Append (~extX, Y);
+               end if;
+          end if;
+     end for;
+return extX;
+end function;
+
+
 // the k parameter is to signal that we are not interested in l-tuples for l < k
 SearchForIrredundantSets := function (G, k)
-tt := Cputime ();
+     ordG := Order (G);
+     Verify (G);
      L := GetDihedrals (G);
-"   [SFIS] found dihedrals in time", Cputime (tt);
-tt := Cputime ();
+     L := [ X : X in L | __CheckOrder (G, X, k) ];
      I := Involutions (G);
-"   [SFIS] got involutions in time", Cputime (tt);
      done := false;
      while not done do
           "   [SFIS] trying to extend", #L, "tuples of size", #L[1], "...";
           newL := [ ];
-          tt := Cputime ();
           for X in L do
                // if there is no room to extend X in G do not bother trying 
                J := [ i : i in I | not i in sub < G | X > ];
-               newL cat:= __Extend (G, X, J, newL);
+               newL cat:= __Extend (G, X, J, newL, k);
           end for;
-          "   [SFIS] ... finished in time", Cputime (tt);
           // remove those that are too big
-          newL := [ X : X in newL | #MyFactors (#G div #sub<G|X>) ge (k-#X) ];
+          newL := [ X : X in newL | __CheckOrder (G, X, k) ];
           if #newL eq 0 then 
                done := true;
           else 
