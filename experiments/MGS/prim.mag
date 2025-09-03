@@ -1,72 +1,175 @@
 /*
-   Some functions for exploring max IGS of primitive groups
+   Possible exceptions to MGS bounds on primitive groups based on chain length
 
    NOTE: Colva and Scott claim better bounds for primitive groups,
    so we now need to be more stringent in looking for exceptions.
 */
 
 
-MyFactors := function (m)
-     facs := Factorization (m);
-     mfacs := [ ];
-     for pair in facs do
-          mfacs cat:= [ pair[1] : i in [1..pair[2]] ];
-     end for;
-return mfacs;
-end function;
-
-// this is an adaptation of Dimitri's recursive function that
-// tests if <G> has a subgroup chain of length at least <len>
-HasSubgroupChainOfLength := function (G, len)
-     if len eq 0 then 
-          return true;
-     end if;
-     maxes := MaximalSubgroups (G);
-     ok := false;
-     j := 1;
-     while (not ok) and (j le #maxes) do
-          if (#MyFactors (#maxes[j]`subgroup) ge (len - 1)) then
-               ok := $$ (maxes[j]`subgroup, len - 1);
-          end if;
-          j +:= 1;
-     end while;
-     return ok;
-end function;
-
-PrintFile ("exceptions.txt", "primitive groups of degree n less than 87 that have subgroup chains bigger than 1 + n/2");
-exceptions := [ ];
-for n in [4..86] do
+/*
+PrintFile (
+     "experiments/MGS/loose_exceptions.txt", 
+     "primitive groups of degree n at most 36 that have subgroup chains bigger than 1 + n/2"
+          );
+PrintFile (
+     "experiments/MGS/tight_exceptions.txt", 
+     "primitive groups of degree n at most 36 that have subgroup chains bigger than sqrt(2*n)"
+          );
+loose_exceptions := [ ];
+tight_exceptions := [ ];
+for n in [4..48] do
+     "processing primitive groups of degree", n;
      num := NumberOfPrimitiveGroups (n);
+     limit := Floor (SquareRoot (2 * n));
      LIMIT := 1 + Floor(n/2);
      for i in [1..num-2] do
           G := PrimitiveGroup (n, i);
-          if HasSubgroupChainOfLength (G, 1 + LIMIT) then
-               PrintFile ("exceptions.txt", <[n,i], PrimitiveGroupDescription (n, i)>);
-               Append (~exceptions, [n, i]);
+          l := MaxLengthSubgroupChain (G);
+          if l gt LIMIT then
+               Append (~loose_exceptions, [n, i]);
+               PrintFile (
+                    "experiments/MGS/loose_exceptions.txt", 
+                    <[n,i], PrimitiveGroupDescription (n, i), LIMIT, l>
+                         );
+          end if;
+          if l gt limit then
+               Append (~tight_exceptions, [n, i]);
+               PrintFile (
+                    "experiments/MGS/tight_exceptions.txt", 
+                    <[n,i], PrimitiveGroupDescription (n, i), limit, l>
+                         );
           end if;
      end for;
 end for;
-//PrintFileMagma ("exceptions.txt", exceptions);
+PrintFileMagma ("experiments/MGS/loose_exceptions.txt", loose_exceptions);
+PrintFileMagma ("experiments/MGS/tight_exceptions.txt", tight_exceptions);
+*/
 
-//test the groups with abelian socles
-abelian := [ ];
-exclude := [ ];
-for x in exceptions do
-     G := PrimitiveGroup (x[1], x[2]);
+// the following are the possible exceptions to the tighter bound 
+// on an MGS of a primitive group based just on length of subgroup chain
+TE := [ PowerSequence(IntegerRing()) |
+    \[ 6, 1 ],
+    \[ 6, 2 ],
+    \[ 7, 5 ],
+    \[ 8, 2 ],
+    \[ 8, 3 ],
+    \[ 8, 4 ],
+    \[ 8, 5 ],
+    \[ 9, 2 ],
+    \[ 9, 3 ],
+    \[ 9, 4 ],
+    \[ 9, 5 ],
+    \[ 9, 6 ],
+    \[ 9, 7 ],
+    \[ 9, 8 ],
+    \[ 9, 9 ],
+    \[ 10, 2 ],
+    \[ 10, 3 ],
+    \[ 10, 4 ],
+    \[ 10, 5 ],
+    \[ 10, 6 ],
+    \[ 10, 7 ],
+    \[ 11, 5 ],
+    \[ 11, 6 ],
+    \[ 12, 1 ],
+    \[ 12, 2 ],
+    \[ 12, 3 ],
+    \[ 12, 4 ],
+    \[ 13, 7 ],
+    \[ 15, 2 ],
+    \[ 15, 3 ],
+    \[ 15, 4 ],
+    \[ 16, 2 ],
+    \[ 16, 3 ],
+    \[ 16, 4 ],
+    \[ 16, 5 ],
+    \[ 16, 6 ],
+    \[ 16, 7 ],
+    \[ 16, 8 ],
+    \[ 16, 9 ],
+    \[ 16, 10 ],
+    \[ 16, 11 ],
+    \[ 16, 12 ],
+    \[ 16, 13 ],
+    \[ 16, 14 ],
+    \[ 16, 15 ],
+    \[ 16, 16 ],
+    \[ 16, 17 ],
+    \[ 16, 18 ],
+    \[ 16, 19 ],
+    \[ 16, 20 ],
+    \[ 17, 6 ],
+    \[ 17, 7 ],
+    \[ 17, 8 ],
+    \[ 21, 3 ],
+    \[ 21, 4 ],
+    \[ 21, 5 ],
+    \[ 21, 6 ],
+    \[ 21, 7 ],
+    \[ 22, 1 ],
+    \[ 22, 2 ],
+    \[ 23, 5 ],
+    \[ 24, 3 ],
+    \[ 25, 19 ],
+    \[ 25, 21 ],
+    \[ 25, 22 ],
+    \[ 25, 23 ],
+    \[ 25, 24 ],
+    \[ 25, 25 ],
+    \[ 25, 26 ],
+    \[ 26, 5 ],
+    \[ 27, 8 ],
+    \[ 27, 10 ],
+    \[ 27, 11 ],
+    \[ 27, 12 ],
+    \[ 27, 13 ],
+    \[ 28, 6 ],
+    \[ 28, 8 ],
+    \[ 28, 10 ],
+    \[ 28, 12 ],
+    \[ 31, 9 ],
+    \[ 31, 10 ],
+    \[ 32, 3 ],
+    \[ 35, 3 ],
+    \[ 35, 4 ],
+    \[ 36, 1 ],
+    \[ 36, 2 ],
+    \[ 36, 3 ],
+    \[ 36, 4 ],
+    \[ 36, 5 ],
+    \[ 36, 6 ],
+    \[ 36, 7 ],
+    \[ 36, 8 ],
+    \[ 36, 16 ],
+    \[ 36, 17 ],
+    \[ 36, 18 ],
+    \[ 36, 19 ],
+    \[ 36, 20 ],
+    \[ 40, 1 ],
+    \[ 40, 2 ],
+    \[ 40, 3 ],
+    \[ 40, 4 ],
+    \[ 40, 5 ],
+    \[ 40, 6 ],
+    \[ 45, 5 ],
+    \[ 45, 6 ],
+    \[ 45, 7 ]
+];
+
+// run through the smaller of these and try to find ISI
+TE_small := [ x : x in TE | x[1] le 16 ];
+ISI_small := [ ];
+real := [*  *];     // these are the real exceptions
+for x in TE_small do
+     "processing primitive group", x;
      n := x[1];
-     LIMIT := 1 + Floor(n/2);
-     N := Socle (G);
-     if IsAbelian (N) then
-          Append (~abelian, x);
-          "x =", x;
-          time pts := [ sub<N|a> : a in N | a ne Identity (N) ];
-          // checks that mu'_G(N) = 1
-          time assert forall { H : H in pts | NormalClosure (G, H) eq N };
-          time L := G / N;
-          time bad := HasSubgroupChainOfLength (L, LIMIT);
-          if not bad then 
-               Append (~exclude, x);
-          end if;
+     i := x[2];
+     G := PrimitiveGroup (n, i);
+     lim := Floor (SquareRoot (2*n));
+     L := ISI (G, 1 + lim);
+     if #L gt 0 then 
+          Append (~real, <n, i, L>);
      end if;
 end for;
+
 

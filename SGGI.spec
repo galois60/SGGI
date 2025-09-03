@@ -7,5 +7,6 @@
         POLYTOPES/involutions.mag
         POLYTOPES/search.mag
         MGS/util.mag
+        MGS/search.mag
   }
 }
